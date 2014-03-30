@@ -1,4 +1,61 @@
-csharp-windows-elevate
-======================
+# Elevate
 
 Run a windows command or program a la Run program as an administrator
+
+## Example
+
+    elevate.exe cmd /c mklink /D up ..
+ 
+ Will run “cmd /c mklink /D up ..” with elevated privileges in order to create a symbolic link.
+
+# Need for Elevate
+
+  Windows UAC
+  [User Account Control](http://windows.microsoft.com/en-CA/windows7/products/features/user-account-control)
+  improves security for Windows users, at the cost of increase complexity, inconvenience, and frequent frustration for
+  software developers. However, even though the user can adjust the level of security of UAC, or even turn it off, there
+  are still some Windows commands and programs that still require Administrative privileges regardless of UAC settings.
+ 
+  While it is possible to configure programs to
+  [“Always Run as an Administrator,”](http://technet.microsoft.com/en-us/magazine/ff431742.aspx)
+  this requires manual intervention on the user's part. Usually software developers get tripped up when they are
+  are trying to automate processes, such as unit test, and the process will fail because someone has forgotten to
+  set a program's properties with “Always Run as an Administrator.”
+ 
+  One way around this is to embed the necessary privileges in the Windows .exe or .dll file via the
+  [Application Manifests](http://msdn.microsoft.com/en-us/library/aa374191(v=vs.85\).aspx), for example
+
+```xml
+  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+    <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+      <security>
+        <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+          <!--
+            The presence of the "requestedExecutionLevel" node will disable
+            file and registry virtualization on Vista.
+
+            Use the "level" attribute to specify the User Account Control level:
+              asInvoker            = Never prompt for elevation
+              requireAdministrator = Always prompt for elevation
+              highestAvailable     = Prompt for elevation when started by administrator, but
+                                     do not prompt for administrator password when started by
+                                     standard user.
+            -->
+          <requestedExecutionLevel level="requireAdministrator"/>
+        </requestedPrivileges>
+      </security>
+    </trustInfo>
+  </assembly>
+```
+  For example, the program elevate.exe has this manifest bundled into it, so it will always behave as if a use
+  manually enabled the program properties “Always Run as an Administrator.”
+
+* Use Case: Automated Unit Tests
+  
+  Often automated tests use test fixtures to setup the environment for the
+  [Unit Under Test](http://en.wikipedia.org/wiki/Device_under_test).
+  If one of the things the test fixture needs to do is create a
+  [Symbolic Link](http://en.wikipedia.org/wiki/Symbolic_link)
+  then this will generally fail on Windows because creating symbolic links can introduce security vulnerabilities
+  into the system. Consequently, this can only be done running as the Administrator user.
