@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>net.kolotyluk.windows</groupId>
+  <artifactId>elevate</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>dotnet-executable</packaging>
+  <name>Elevate.exe</name>
+  <description>Elevate to Run As Administrator</description>
+
+  <build>
+    <sourceDirectory>./</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-compile-plugin</artifactId>
+        <version>1.5.0-incubating-SNAPSHOT</version>
+        <extensions>true</extensions>
+        <configuration>
+          <frameworkVersion>4.0</frameworkVersion>
+          <main>net.kolotyluk.windows.elevate.Elevate</main>
+          <includeSources>
+            <includeSource>Properties\AssemblyInfo.cs</includeSource>
+            <includeSource>src\main\csharp\net\kolotyluk\windows\elevate\Elevate.cs</includeSource>
+          </includeSources>
+          <parameters>
+            <parameter>/win32manifest:Properties\app.manifest</parameter>
+          </parameters>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-resgen-plugin</artifactId>
+        <version>1.5.0-incubating-SNAPSHOT</version>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  </dependencies>
+</project>
