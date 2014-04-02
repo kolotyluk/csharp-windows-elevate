@@ -17,7 +17,9 @@
 
     <menu name="Elevate">
       <item name="Introduction" href="index.html"/>
+      <item name="Usage" href="usage.html"/>
       <item name="Background" href="background.html"/>
+      <item name="API doc pages" href="apidocs/index.html"/>
       <item name="Download" href="download.html"/>
       <item name="Release Notes" href="release-notes.html" />
       <item name="General Information" href="about.html"/>

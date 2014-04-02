@@ -81,10 +81,10 @@ namespace net.kolotyluk.windows.elevate
 	///   creates symbolic links instead of running arbitrary code.
 	/// </para>
 	/// </remarks>
-	class Elevate
+	public class Elevate
 	{
-		public const string LogSource = "net.kolotyluk.windows.elevate";
-		public const string LogName = "Application";
+		private const string LogSource = "net.kolotyluk.windows.elevate";
+		private const string LogName = "Application";
 		
 		static EventLog eventLog;
 		
@@ -102,6 +102,10 @@ namespace net.kolotyluk.windows.elevate
 		/// </remarks>
 		public static int Main(string[] commandArguments)
 		{
+			System.Diagnostics.Debug.WriteLine("step 0");
+			
+			if (commandArguments == null) return 0;
+			
 			int exitCode = -1;	// assume the worst, because it's Windows
 			
 			// Create the source, if it does not already exist. 
@@ -115,149 +119,150 @@ namespace net.kolotyluk.windows.elevate
             	Console.WriteLine("CreatedEventSource");
 				Thread.Sleep(2000);
         	}
-
+			
         	// Create an EventLog instance and assign its source.
         	eventLog = new EventLog(LogName);
 			eventLog.Source = LogSource;
 			
-			if (commandArguments.Length == 0)
-			{
-				// Try to explain to the end user the important facts...
-				// Try to format it to fit nicely inside the tiny command
-				// windows that pops up when the application is running elevated.
+			string message;
+			
+			TcpClient client = null;
+			NetworkStream networkStream = null;
+			StreamReader streamReader = null;
+			StreamWriter streamWriter = null;
+			
+			Process process = null;
+			
+			try
+     		{
+				int commandIndex = 0;
 				
-				var message = 
-					"The purpose of this program is to run commands using elevated priviledge\n(i.e. Run As Administrator).\n" +
-					"\nIf you don't really know what you are doing, then think twice about doing it.\n" +
-					"You have been warned!\n" +
-					"\nuseage:  elevate {port} command {arg1, arg2, ...}\n" +
-					"\nexample: elevate cmd /c mklink /D up ..\n" +
-					"\nTo start a cmd shell to create a symbolic link from up to .. (the parent directory)\n" +
-					"Messages are logged to:\n" +
-					"    Computer Management\n" +
-					"      System Tools\n" +
-					"        Event Viewer\n" +
-					"          Windows Logs\n" +
-					"            " + LogName + "\n" +
-					"              " + LogSource + "\n" +
-					"\nIf the first command argument is an integer, it is takend to be\n" +
-					"the port number on localhost to also log messages to. For example:\n" +
-					"\n\televate 12345 cmd /c mklink /D up ..\n" +
-					"\nto create a sumbolic link, and log status via TCP on port 12345.\n";
-	
-				Console.WriteLine(message);
+				int port = 0;
 				
-				pause("not null");
-			}
-			else
-			{
-				TcpClient client = null;
-				NetworkStream networkStream = null;
-				StreamReader streamReader = null;
-				StreamWriter streamWriter = null;
+				if (commandArguments.Length > 0 && int.TryParse(commandArguments[0], out port))
+				{
+					commandIndex++;
+				}
 				
-				Console.WriteLine("step 1");
+				if (port > 0)
+				{
+					client = new TcpClient("localhost", port);
+					networkStream = client.GetStream();
+        			streamReader = new StreamReader(networkStream);
+        			streamWriter = new StreamWriter(networkStream);
+        			streamWriter.AutoFlush = true;
+					emit("Using localhost:" + port + " for TCP/IP communication", streamWriter);
+				}
+				else
+					eventLog.WriteEntry("port = " + port);
 				
-				Process process = null;
-				
-				try
-	     		{
-					int commandIndex = 0;
+				if (commandArguments.Length == commandIndex)
+				{
+					// Try to explain to the end user the important facts...
+					// Try to format it to fit nicely inside the tiny command
+					// windows that pops up when the application is running elevated.
 					
-					int port;
-					
-					if (int.TryParse(commandArguments[0], out port))
-					{
-						commandIndex++;
-					}
-					
-					if (port > 0)
-					{
-						client = new TcpClient("localhost", port);
-						networkStream = client.GetStream();
-            			streamReader = new StreamReader(networkStream);
-            			streamWriter = new StreamWriter(networkStream);
-            			streamWriter.AutoFlush = true;
-						eventLog.WriteEntry("Using localhost:" + port + " for TCP/IP communication");
-					}
-					
-				 	Console.WriteLine("step 2");
-					// Create a new process with the commandArguments we are given.
-
-					var stringBuilder = new StringBuilder();
-					for(int commandArgumentIndex = commandIndex + 1; commandArgumentIndex < commandArguments.Length; commandArgumentIndex++)
-						stringBuilder.Append(commandArguments[commandArgumentIndex]).Append(" ");
-					
-					String processArguments = stringBuilder.ToString();
-					
-					var message = "Elevating: " + commandArguments[commandIndex] + " " + processArguments;
+					message = 
+						"The purpose of this program is to run commands using elevated priviledge\n(i.e. Run As Administrator).\n" +
+						"\nIf you don't really know what you are doing, then think twice about doing it.\n" +
+						"You have been warned!\n" +
+						"\nuseage:  elevate {port} command {arg1, arg2, ...}\n" +
+						"\nexample: elevate cmd /c mklink /D up ..\n" +
+						"\nTo start a cmd shell to create a symbolic link from up to .. (the parent directory)\n" +
+						"Messages are logged to:\n" +
+						"    Computer Management\n" +
+						"      System Tools\n" +
+						"        Event Viewer\n" +
+						"          Windows Logs\n" +
+						"            " + LogName + "\n" +
+						"              " + LogSource + "\n" +
+						"\nIf the first command argument is an integer, it is takend to be\n" +
+						"the port number on localhost to also log messages to. For example:\n" +
+						"\n\televate 12345 cmd /c mklink /D up ..\n" +
+						"\nto create a sumbolic link, and log status via TCP on port 12345.\n";
+		
 					Console.WriteLine(message);
-					if (streamWriter != null) streamWriter.WriteLine(message);
-					eventLog.WriteEntry(message);
 					
-					// Now we create a process, assign its ProcessStartInfo and start it
-	    			process = new System.Diagnostics.Process();
-					process.StartInfo = new System.Diagnostics.ProcessStartInfo(commandArguments[commandIndex], processArguments);
+					pause("not null");
 					
-					// The following commands are needed to redirect the standard output.
-	    			// This means that it will be redirected to the Process.StandardOutput StreamReader.
-					
-					process.StartInfo.RedirectStandardOutput = true;
-					process.StartInfo.UseShellExecute = false;
-					process.StartInfo.CreateNoWindow = true;
-					
-					Console.WriteLine("step 3");
-					
-					// Start the process and read any output from it.
-					if (process.Start())
-					{
-						if (process.WaitForExit(10000)) // 10 seconds
-						{
-							exitCode = process.ExitCode;
+					return 0;	// Normal exit with no arguments
+				}
 
-							if (exitCode == 0)
-							{
-								// Get the output into a string
-	    						var outputString = process.StandardOutput.ReadToEnd();
-								emit(outputString, streamWriter);
-							}
-							else
-							{
-								emit("Process exited with exitCode = " + exitCode, streamWriter, EventLogEntryType.Error);
-								pause(networkStream);
-							}		
+				
+			 	Console.WriteLine("step 2");
+				// Create a new process with the commandArguments we are given.
+
+				var stringBuilder = new StringBuilder();
+				for(int commandArgumentIndex = commandIndex + 1; commandArgumentIndex < commandArguments.Length; commandArgumentIndex++)
+					stringBuilder.Append(commandArguments[commandArgumentIndex]).Append(" ");
+				
+				String processArguments = stringBuilder.ToString();
+				
+				message = "Elevating: " + commandArguments[commandIndex] + " " + processArguments;
+				Console.WriteLine(message);
+				if (streamWriter != null) streamWriter.WriteLine(message);
+				eventLog.WriteEntry(message);
+				
+				// Now we create a process, assign its ProcessStartInfo and start it
+    			process = new System.Diagnostics.Process();
+				process.StartInfo = new System.Diagnostics.ProcessStartInfo(commandArguments[commandIndex], processArguments);
+				
+				// The following commands are needed to redirect the standard output.
+    			// This means that it will be redirected to the Process.StandardOutput StreamReader.
+				
+				process.StartInfo.RedirectStandardOutput = true;
+				process.StartInfo.UseShellExecute = false;
+				process.StartInfo.CreateNoWindow = true;
+				
+				// Start the process and read any output from it.
+				if (process.Start())
+				{
+					if (process.WaitForExit(10000)) // 10 seconds
+					{
+						exitCode = process.ExitCode;
+
+						if (exitCode == 0)
+						{
+							// Get the output into a string
+    						var outputString = process.StandardOutput.ReadToEnd();
+							emit(outputString, streamWriter);
 						}
 						else
 						{
-							emit("Timed out after 10 seconds waiting for process to exit.", streamWriter, EventLogEntryType.Error);
+							emit("Process exited with exitCode = " + exitCode, streamWriter, EventLogEntryType.Error);
 							pause(networkStream);
-						}
+						}		
 					}
 					else
 					{
-						emit("The Process did not start as expected.", streamWriter, EventLogEntryType.Error);
+						emit("Timed out after 10 seconds waiting for process to exit.", streamWriter, EventLogEntryType.Error);
 						pause(networkStream);
 					}
-	      		}
-				catch (SocketException socketException)
+				}
+				else
 				{
-					emit("SocketException: " + socketException.Message, streamWriter, EventLogEntryType.Error);
+					emit("The Process did not start as expected.", streamWriter, EventLogEntryType.Error);
 					pause(networkStream);
 				}
-	      		catch (Exception exception)
-	      		{
-					emit(exception + 
-						"\nDirectory.GetCurrentDirectory() = " + Directory.GetCurrentDirectory() +
-						"\nprocess.StartInfo.FileName = " + process.StartInfo.FileName, streamWriter, EventLogEntryType.Error);
-					pause(networkStream);
-	      		}
-				finally
-				{
-					// Clean up nicely so the other end of the socket
-					// does not get a rude (connection reset) surprise.
-					if (streamWriter != null) streamWriter.Flush();
-					if (networkStream != null) networkStream.Close();
-				}
+      		}
+			catch (SocketException socketException)
+			{
+				emit("SocketException: " + socketException.Message, streamWriter, EventLogEntryType.Error);
+				pause(networkStream);
+			}
+      		catch (Exception exception)
+      		{
+				emit(exception + 
+					"\nDirectory.GetCurrentDirectory() = " + Directory.GetCurrentDirectory() +
+					"\nprocess.StartInfo.FileName = " + process.StartInfo.FileName, streamWriter, EventLogEntryType.Error);
+				pause(networkStream);
+      		}
+			finally
+			{
+				// Clean up nicely so the other end of the socket
+				// does not get a rude (connection reset) surprise.
+				if (streamWriter != null) streamWriter.Flush();
+				if (networkStream != null) networkStream.Close();
 			}
 
 			return exitCode;

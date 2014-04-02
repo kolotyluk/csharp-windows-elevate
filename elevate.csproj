@@ -12,9 +12,24 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <NoWin32Manifest>False</NoWin32Manifest>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <DocumentationFile>bin\Debug\elevate.xml</DocumentationFile>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\Eric\AppData\Roaming\ICSharpCode\SharpDevelop5\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -23,6 +38,8 @@
     <Optimize>False</Optimize>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Project</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -35,6 +52,9 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:\Program Files %28x86%29\NUnit 2.6.3\bin\framework\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -52,24 +72,23 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\main\csharp\net\kolotyluk\windows\elevate\Elevate.cs" />
+    <Compile Include="src\test\csharp\net\kolotyluk\windows\elevate\ElevateTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\app.manifest" />
-    <None Include="src\main\java\net\kolotyluk\java\elevate\Elevate.java" />
-    <None Include="src\main\resources\net\kolotyluk\java\elevate\windows\elevate.exe" />
-    <None Include="src\main\resources\net\kolotyluk\java\elevate\windows\elevate.exe.config" />
-    <None Include="src\main\resources\net\kolotyluk\java\elevate\windows\elevate.html" />
-    <None Include="src\main\resources\net\kolotyluk\java\elevate\windows\elevate.pdb" />
     <None Include="src\site\apt\background.apt" />
     <None Include="src\site\apt\background.apt" />
+    <None Include="src\site\apt\usage.apt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>usage.txt</LastGenOutput>
+    </None>
     <None Include="src\site\fml\faq.fml" />
     <None Include="src\site\fml\faq.fml" />
     <None Include="src\site\site.xml" />
     <None Include="src\site\site.xml" />
     <None Include="src\site\xhtml\release-notes.xhtml" />
     <None Include="src\site\xhtml\release-notes.xhtml" />
-    <None Include="src\test\java\net\kolotyluk\java\elevate\ElevateTest.java" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src" />
@@ -79,17 +98,11 @@
     <Folder Include="src\main\csharp\net\kolotyluk" />
     <Folder Include="src\main\csharp\net\kolotyluk\windows" />
     <Folder Include="src\main\csharp\net\kolotyluk\windows\elevate" />
-    <Folder Include="src\main\java" />
-    <Folder Include="src\main\java\net" />
-    <Folder Include="src\main\java\net\kolotyluk" />
-    <Folder Include="src\main\java\net\kolotyluk\java" />
-    <Folder Include="src\main\java\net\kolotyluk\java\elevate" />
     <Folder Include="src\main\resources" />
     <Folder Include="src\main\resources\net" />
     <Folder Include="src\main\resources\net\kolotyluk" />
-    <Folder Include="src\main\resources\net\kolotyluk\java" />
-    <Folder Include="src\main\resources\net\kolotyluk\java\elevate" />
-    <Folder Include="src\main\resources\net\kolotyluk\java\elevate\windows" />
+    <Folder Include="src\main\resources\net\kolotyluk\windows" />
+    <Folder Include="src\main\resources\net\kolotyluk\windows\elevate" />
     <Folder Include="src\site" />
     <Folder Include="src\site" />
     <Folder Include="src\site\apt" />
@@ -99,17 +112,14 @@
     <Folder Include="src\site\xhtml" />
     <Folder Include="src\site\xhtml" />
     <Folder Include="src\test" />
-    <Folder Include="src\test\java" />
-    <Folder Include="src\test\java\net" />
-    <Folder Include="src\test\java\net\kolotyluk" />
-    <Folder Include="src\test\java\net\kolotyluk\java" />
-    <Folder Include="src\test\java\net\kolotyluk\java\elevate" />
+    <Folder Include="src\test\csharp" />
+    <Folder Include="src\test\csharp\net" />
+    <Folder Include="src\test\csharp\net\kolotyluk" />
+    <Folder Include="src\test\csharp\net\kolotyluk\windows" />
+    <Folder Include="src\test\csharp\net\kolotyluk\windows\elevate" />
     <Folder Include="src\test\resources" />
     <Folder Include="src\test\resources\net" />
     <Folder Include="src\test\resources\net\kolotyluk" />
-    <Folder Include="src\test\resources\net\kolotyluk\java" />
-    <Folder Include="src\test\resources\net\kolotyluk\java\elevate" />
-    <Folder Include="src\test\resources\net\kolotyluk\java\elevate\windows" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

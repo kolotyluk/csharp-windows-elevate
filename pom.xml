@@ -2,16 +2,158 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://maven.apache.org/POM/4.0.0">
   <modelVersion>4.0.0</modelVersion>
 
+  <!--
+    See http://incubator.apache.org/npanday for using Maven with .NET
+  -->
+  
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
   <groupId>net.kolotyluk.windows</groupId>
-  <artifactId>elevate</artifactId>
+  <artifactId>csharp-windows-elevate</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>dotnet-executable</packaging>
-  <name>Elevate.exe</name>
+
+  <name>elevate.exe</name>
   <description>Elevate to Run As Administrator</description>
+  <url>http://kolotyluk.github.io/csharp-windows-elevate</url>
+  
+  <inceptionYear>2014</inceptionYear>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+  
+  <scm>
+  	<url>https://github.com/kolotyluk/csharp-windows-elevate</url>
+	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</connection>
+	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
+  </scm>
+  
+  <issueManagement>
+    <url>https://github.com/kolotyluk/csharp-windows-elevate/issues</url>
+	<system>GitHub Issues</system>
+  </issueManagement>
+
+  <developers>
+    <developer>
+      <id>eric</id>
+      <name>Eric Kolotyluk</name>
+      <email>eric@kolotyluk.net</email>
+      <url>https://plus.google.com/+EricKolotyluk/about</url>
+      <organization>Open Source by Eric Kolotyluk</organization>
+      <organizationUrl>http://kolotyluk.github.io</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>-8</timezone>
+      <properties>
+        <picUrl>http://tinyurl.com/qgrhs46</picUrl>
+      </properties>
+    </developer>
+  </developers>
+  
+  <organization>
+  	<name>Open Source by Eric Kolotyluk</name>
+  	<url>http://kolotyluk.github.io</url>
+  </organization>
+  
+  <properties>
+    <encoding>UTF-8</encoding>
+    <github.global.server>github</github.global.server>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>NUnit</groupId>
+      <artifactId>NUnit.Framework</artifactId>
+      <version>2.2.8.0</version>
+      <type>dotnet-library</type>
+    </dependency>
+<!--
+    <dependency>
+      <groupId>org.hudsonci.plugins</groupId>
+      <artifactId>nunit</artifactId>
+      <version>0.14-h-1</version>
+    </dependency>
+-->
+  </dependencies>
 
   <build>
-    <sourceDirectory>./</sourceDirectory>
+    <sourceDirectory>src/main/csharp</sourceDirectory>
+    <testSourceDirectory>src/test/csharp</testSourceDirectory>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.1</version>
+          <!--
+            Bugs in older versions prevent altReleaseDeploymentRepository
+            and altSnapshotDeploymentRepository from working correctly
+            https://maven.apache.org/plugins/maven-deploy-plugin/deploy-mojo.html
+         -->
+        </plugin>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+        <plugin>
+          <groupId>com.github.github</groupId>
+          <artifactId>site-maven-plugin</artifactId>
+          <version>0.9</version>
+ 	    </plugin>
+      </plugins>
+    </pluginManagement>
+
     <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <phase>site</phase>
+            <configuration>
+              <target name="help">
+                <exec executable="cmd">
+                  <arg value="/c"/>
+                  <arg value="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe"/>
+                  <arg value='/p:FeedbackEMailAdress="eric@kolotyluk.net"'/>
+                  <arg value="elevate.shfbproj"/>
+              	</exec>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.npanday.plugins</groupId>
         <artifactId>maven-compile-plugin</artifactId>
@@ -34,8 +176,66 @@
         <artifactId>maven-resgen-plugin</artifactId>
         <version>1.5.0-incubating-SNAPSHOT</version>
       </plugin>
+      <!--
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-test-plugin</artifactId>
+        <version>1.4.0-incubating</version>
+      </plugin>
+      -->
     </plugins>
   </build>
-  <dependencies>
-  </dependencies>
+  
+  <profiles>
+    <profile>
+      <id>github-site</id>
+      <!--
+        We do not want to deploy our site to GitHub until we release it to Maven Central,
+        otherwise, snap-shot releases get published. For example:
+        mvn release:clean
+        mvn release:prepare -P github-site
+        mvn release:perform
+      -->
+      <build>
+        <plugins>
+          <plugin>
+            <!--
+            	deploy the site to github pages
+            	https://github.com/github/maven-plugins
+            -->
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <configuration>
+              <!-- the id of the server with the passwords in settings.xml -->
+              <server>github</server>
+              <!-- sometimes the plugin cannot figure out the owner and name  -->
+              <!-- from the scm info, so it is best to define it explicitly   -->
+<!--               <repositoryOwner>kolotyluk</repositoryOwner> -->
+<!--               <repositoryName>java-file-utilities</repositoryName> -->
+              <message>Creating site for ${project.version}</message>
+            </configuration>
+            <executions>
+              <execution>
+                <phase>site</phase>
+                <goals>
+                  <goal>site</goal> <!-- the site goal uploads to gh_pages -->
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.6</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
 </project>

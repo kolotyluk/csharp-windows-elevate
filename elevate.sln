@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # SharpDevelop 5.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elevate", "elevate.csproj", "{6B8C8413-752D-40EC-A57E-47C23C020B4F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3CC5EED5-7BF3-4F9E-B384-947657A7AD48}"
+	ProjectSection(SolutionItems) = preProject
+		pom.xml = pom.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

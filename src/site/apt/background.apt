@@ -2,9 +2,9 @@ Need for Elevate
 
   Windows UAC
   {{{http://windows.microsoft.com/en-CA/windows7/products/features/user-account-control} User Account Control}}
-  improves security for Windows users, at the cost of increase complexity, inconvenience, and frequent frustration for
+  improves security for Windows users, at the cost of increased complexity, inconvenience, and frequent frustration for
   software developers. However, even though the user can adjust the level of security of UAC, or even turn it off, there
-  are still some Windows commands and programs that still require Administrative privileges regardless of UAC settings.
+  are still some Windows commands and programs that require Administrative privileges regardless of UAC settings.
  
   While it is possible to configure programs to
   {{{http://technet.microsoft.com/en-us/magazine/ff431742.aspx} “Always Run as an Administrator,”}}
