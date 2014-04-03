@@ -72,6 +72,7 @@
     <encoding>UTF-8</encoding>
     <github.global.server>github</github.global.server>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	<maven.nunit.usefile>false</maven.nunit.usefile>
   </properties>
 
   <dependencies>
@@ -129,7 +130,6 @@
                 <exec executable="cmd">
                   <arg value="/c" />
                   <arg value="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
-                  <arg value="/p:FeedbackEMailAdress=&quot;eric@kolotyluk.net&quot;" />
                   <arg value="elevate.shfbproj" />
               	</exec>
               </target>
@@ -140,7 +140,19 @@
           </execution>
         </executions>
       </plugin>
-
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-test-plugin</artifactId>
+      	<version>1.5.0-incubating-SNAPSHOT</version>
+<!--
+      	<configuration>
+          <properties>
+            <maven.nunit.usefile>false</maven.nunit.usefile>
+          </properties>
+      	</configuration>
+-->
+        <extensions>true</extensions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>

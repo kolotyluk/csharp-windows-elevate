@@ -72,13 +72,11 @@ namespace net.kolotyluk.windows.elevate
 			int result = Elevate.Main(arguments);
 			
 			// Give up our time-slice so the thread can finish
-			Thread.Sleep(10);
+			Thread.Sleep(0);
 			
 			System.Diagnostics.Debug.WriteLine(stringBuilder);
 			
 			Assert.AreEqual(0, result);
-			
-			
 		}
 		
 		private void ListenForClients()
