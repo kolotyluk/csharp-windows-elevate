@@ -229,9 +229,9 @@
             </configuration>
             <executions>
               <execution>
-                <phase>site</phase>
+              	<phase>release</phase>
                 <goals>
-                  <goal>site</goal> <!-- the site goal uploads to gh_pages -->
+                  <goal>perform</goal> <!-- the site goal uploads to gh_pages -->
                 </goals>
               </execution>
             </executions>
