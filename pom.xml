@@ -238,7 +238,7 @@
               <execution>
               	<phase>site-deploy</phase>
                 <goals>
-                  <goal>deploy</goal> <!-- the site goal uploads to gh_pages -->
+                  <goal>site</goal> <!-- the site goal uploads to gh_pages -->
                 </goals>
               </execution>
             </executions>
