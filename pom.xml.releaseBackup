@@ -14,7 +14,7 @@
 
   <groupId>net.kolotyluk.windows</groupId>
   <artifactId>csharp-windows-elevate</artifactId>
-  <version>0.0.8-SNAPSHOT</version>
+  <version>0.0.7-SNAPSHOT</version>
   <packaging>dotnet-executable</packaging>
 
   <name>elevate.exe</name>
@@ -238,7 +238,7 @@
               <execution>
               	<phase>site-deploy</phase>
                 <goals>
-                  <goal>deploy</goal> <!-- the site goal uploads to gh_pages -->
+                  <goal>site:deploy</goal> <!-- the site goal uploads to gh_pages -->
                 </goals>
               </execution>
             </executions>
