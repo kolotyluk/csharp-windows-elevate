@@ -224,7 +224,7 @@
       -->
       <activation>
         <file>
-          <exists>..\release.properties</exists>
+          <exists>../release.properties</exists>
         </file>
       </activation>
       <build>
