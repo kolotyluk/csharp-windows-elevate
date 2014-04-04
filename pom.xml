@@ -130,9 +130,28 @@
         <version>1.7</version>
         <executions>
           <execution>
+            <phase>pre-site</phase>
+            <configuration>
+              <target name="copy">
+                <copy todir="bin">
+                  <fileset dir="../../bin"/>
+               </copy>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
             <phase>site</phase>
             <configuration>
-              <target name="help">
+              <target name="sandcastle">
                 <exec executable="cmd">
                   <arg value="/c" />
                   <arg value="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
