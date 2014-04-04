@@ -38,6 +38,13 @@
 	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
+	
+  <distributionManagement>
+	<site>
+  	  <id>local</id>
+  	  <url>file:///d:site</url>
+  	</site>
+  </distributionManagement>
   
   <issueManagement>
     <url>https://github.com/kolotyluk/csharp-windows-elevate/issues</url>
@@ -229,9 +236,9 @@
             </configuration>
             <executions>
               <execution>
-              	<phase>release</phase>
+              	<phase>site-deploy</phase>
                 <goals>
-                  <goal>perform</goal> <!-- the site goal uploads to gh_pages -->
+                  <goal>site:deploy</goal> <!-- the site goal uploads to gh_pages -->
                 </goals>
               </execution>
             </executions>
