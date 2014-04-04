@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder" version="2014.2.15.0 Beta" projectFile="D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\elevate.shfbproj" started="4/4/2014 11:34:54 AM">
+<shfbBuild product="Sandcastle Help File Builder" version="2014.2.15.0 Beta" projectFile="D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\elevate.shfbproj" started="4/4/2014 11:42:36 AM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -12,13 +12,317 @@ Source: D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\targe
     Found project &#39;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\elevate.csproj&#39;
 
 Parsing project files
-    Last step completed in 00:00:00.0530
-</buildStep>
-<buildStep step="Failed">
+    Found assembly &#39;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\bin\Debug\elevate.exe&#39;
 
-SHFB: Error BE0040: Project assembly does not exist: D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\bin\Debug\elevate.exe
-   at SandcastleBuilder.Utils.BuildEngine.BuildProcess.ValidateDocumentationSources()
-   at SandcastleBuilder.Utils.BuildEngine.BuildProcess.Build()
+References to include (excluding framework assemblies):
+    nunit.framework
+
+Copying XML comments files
+    D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\bin\Debug\elevate.xml -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\elevate.xml
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+    Last step completed in 00:00:00.0310
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0030
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
+Build started 4/4/2014 11:42:37 AM.
+Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
+PrepareForBuild:
+  Creating directory &quot;obj\Debug\&quot;.
+GenerateRefInfo:
+  MRefBuilder (v2014.1.26.0)
+  Copyright &#169; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Loaded 1 assemblies for reflection and 2 dependency assemblies.
+  Wrote information on 1 namespaces, 2 types, and 5 members
+  Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
+  XslTransform (v2014.1.26.0)
+  Copyright &#169; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\MergeDuplicates.xsl&#39;.
+Done Building Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\GenerateRefInfo.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.49
+    Last step completed in 00:00:00.7620
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
+Build started 4/4/2014 11:42:38 AM.
+Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\TransformManifest.proj&quot; on node 1 (default targets).
+TransformManifest:
+  XslTransform (v2014.1.26.0)
+  Copyright &#169; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Copying file from &quot;reflection.xml&quot; to &quot;reflection.nofilenames&quot;.
+  XslTransform (v2014.1.26.0)
+  Copyright &#169; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2014.1.26.0)
+  Copyright &#169; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+Done Building Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\TransformManifest.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.71
+    Last step completed in 00:00:00.9411
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.0250
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+No additional content to copy
+    Last step completed in 00:00:00.0030
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0010
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
+Build started 4/4/2014 11:42:39 AM.
+Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
+GenerateIntermediateTOC:
+  XslTransform (v2014.1.26.0)
+  Copyright &#169; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\CreateVSToc.xsl&#39;.
+Done Building Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\GenerateIntermediateTOC.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.14
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00.3660
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    Last step completed in 00:00:00.1160
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\sandcastle.config
+    Last step completed in 00:00:00.0221
+</buildStep>
+<buildStep step="BuildReferenceTopics">
+Building reference help topics...
+[C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
+Build started 4/4/2014 11:42:39 AM.
+Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\BuildReferenceTopics.proj&quot; on node 1 (default targets).
+BuildReferenceTopics:
+  BuildAssembler (v2014.1.26.0)
+  Copyright &#169; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Loading configuration...
+  Processing topics...
+BuildAssembler : warning : ShowMissingComponent: [T:net.kolotyluk.windows.elevate.ElevateTest] Missing &lt;summary&gt; documentation [D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:net.kolotyluk.windows.elevate.ElevateTest.NoArguments] Missing &lt;summary&gt; documentation [D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:net.kolotyluk.windows.elevate.ElevateTest.OneArgumentTCP] Missing &lt;summary&gt; documentation [D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\BuildReferenceTopics.proj]
+  Processed 12 topic(s)
+  3 warning(s)
+  CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 2 of 15.
+  CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
+Done Building Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\BuildReferenceTopics.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.06
+    Last step completed in 00:00:07.2695
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+
+Clearing any prior web output
+    Last step completed in 00:00:00.0040
+</buildStep>
+<buildStep step="ExtractingHtmlInfo">
+Extracting HTML info for HTML Help 1 and/or website...
+[C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
+Sandcastle Help File Builder, version 2014.2.15.0 Beta
+Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved
+E-Mail: Eric@EWoodruff.us
+
+Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
+
+Processing website files in D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website
+Processed 12 HTML files
+Sorting keywords and generating See Also indices
+Saving website keyword index to D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\WebKI.xml
+Saving website table of contents to D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\WebTOC.xml
+    Last step completed in 00:00:00.3780
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\adm.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\adm.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\adm_arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\adm_arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\adm_dev.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\adm_dev.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\adm_dev_arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\adm_dev_arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\alert_caution.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\alert_caution.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\alert_note.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\alert_note.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\alert_security.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\alert_security.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\big_adm.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\big_adm.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\big_arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\big_arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\big_dev.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\big_dev.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\big_kw.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\big_kw.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\box.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\box.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\Caution.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\Caution.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\CFW.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\CFW.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\collall.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\collall.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\collapse.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\collapse.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\collapse_all.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\collapse_all.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\copycode.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\copycode.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\copycodeHighlight.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\copycodeHighlight.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\dev.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\dev.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\dev_arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\dev_arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\dropdown.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\dropdown.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\dropdownHover.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\dropdownHover.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\drpdown.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\drpdown.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\drpdown_orange.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\drpdown_orange.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\drpdown_orange_up.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\drpdown_orange_up.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\drpup.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\drpup.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\exp.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\exp.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\expall.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\expall.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\expand_all.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\expand_all.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\filter1a.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\filter1a.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\filter1c.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\filter1c.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\footer.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\footer.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\gradient.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\gradient.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\greencheck.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\greencheck.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\greychck.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\greychck.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\header_prev_next.jpg -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\header_prev_next.jpg
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\header_sql_tutorial_blank.jpg -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\header_sql_tutorial_blank.jpg
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\header_sql_tutorial_logo.GIF -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\header_sql_tutorial_logo.GIF
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\kw.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\kw.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\kw_adm.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\kw_adm.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\kw_adm_arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\kw_adm_arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\kw_adm_dev.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\kw_adm_dev.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\kw_adm_dev_arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\kw_adm_dev_arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\kw_arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\kw_arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\kw_dev.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\kw_dev.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\kw_dev_arch.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\kw_dev_arch.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\LastChild.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\LastChild.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\load.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\load.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\load_hover.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\load_hover.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\note.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\note.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pencil.GIF -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pencil.GIF
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privclass.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privdelegate.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privenum.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privenum.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privenumeration.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privevent.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privextension.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privfield.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privinterface.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privmethod.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privproperty.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\privstructure.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\privstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protclass.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protdelegate.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protenum.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protenum.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protenumeration.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protevent.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protextension.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protfield.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protinterface.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protmethod.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protoperator.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protoperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protproperty.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\protstructure.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\protstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubclass.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubdelegate.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubenum.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubenum.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubenumeration.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubevent.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubextension.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubfield.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubinterface.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubmethod.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\puboperator.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\puboperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubproperty.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\pubstructure.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\pubstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\requirements1a.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\requirements1a.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\requirements1c.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\requirements1c.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\save.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\save.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\save_hover.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\save_hover.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\security.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\security.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\seealso1a.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\seealso1a.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\seealso1c.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\seealso1c.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\slMobile.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\slMobile.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\static.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\static.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\icons\xna.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\icons\xna.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\scripts\CheckboxMenu.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\scripts\CheckboxMenu.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\scripts\CommonUtilities.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\scripts\CommonUtilities.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\scripts\Dropdown.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\scripts\Dropdown.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\scripts\EventUtilities.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\scripts\EventUtilities.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\scripts\script_feedBack.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\scripts\script_feedBack.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\scripts\script_manifold.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\scripts\script_manifold.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\scripts\SplitScreen.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\scripts\SplitScreen.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2005\styles\Presentation.css -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\styles\Presentation.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\CloseSearch.png -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\CloseSearch.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\CollapseAll.png -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\CollapseAll.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Collapsed.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Collapsed.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Expanded.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Expanded.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\favicon.ico -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\favicon.ico
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\FillNode.aspx -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\FillNode.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\FillNode.php -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\FillNode.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Index.aspx -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Index.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Index.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Index.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\index.html -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\index.html
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\index.php -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\index.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Item.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Item.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\LoadIndexKeywords.aspx -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\LoadIndexKeywords.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\LoadIndexKeywords.php -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\LoadIndexKeywords.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Search.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Search.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\SearchHelp.aspx -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\SearchHelp.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\SearchHelp.inc.php -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\SearchHelp.inc.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\SearchHelp.php -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\SearchHelp.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Splitter.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Splitter.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\SyncTOC.gif -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\SyncTOC.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.css -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\TOC.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\TOC.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Web.Config -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Web.Config
+    Last step completed in 00:00:01.0151
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Generating website table of contents file...
+    Last step completed in 00:00:00.0010
+</buildStep>
+<buildStep step="GenerateFullTextIndex">
+Generating full-text index for the website...
+
+    Last step completed in 00:00:00.1400
+</buildStep>
+<buildStep step="CopyingWebsiteFiles">
+Copying website files to output folder...
+
+Copied 100 files
+Copied 167 files for the website content
+    Last step completed in 00:00:00.3610
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00.0380
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 04/04/2014 11:42 AM.  Total time: 00:00:12.3857
 
 </buildStep>
 </shfbBuild>
