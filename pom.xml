@@ -78,8 +78,8 @@
   <properties>
     <encoding>UTF-8</encoding>
     <github.global.server>github</github.global.server>
+  	<!-- <ignoreSnapshots>true</ignoreSnapshots> -->
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	<maven.nunit.usefile>false</maven.nunit.usefile>
   </properties>
 
   <dependencies>
@@ -146,6 +146,13 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <!-- Necessary hack until NPanday 1.5 is formally released -->
+          <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.npanday.plugins</groupId>
