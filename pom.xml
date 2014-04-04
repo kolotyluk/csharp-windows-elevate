@@ -78,7 +78,6 @@
   <properties>
     <encoding>UTF-8</encoding>
     <github.global.server>github</github.global.server>
-  	<!-- <ignoreSnapshots>true</ignoreSnapshots> -->
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
@@ -223,6 +222,11 @@
         mvn release:prepare -P github-site
         mvn release:perform
       -->
+      <activation>
+        <file>
+          <exists>release.properties</exists>
+        </file>
+      </activation>
       <build>
         <plugins>
           <plugin>
