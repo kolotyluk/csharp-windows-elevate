@@ -42,7 +42,7 @@
   <distributionManagement>
 	<site>
   	  <id>local</id>
-  	  <url>file:///d:site</url>
+  	  <url>file:///released-site</url>
   	</site>
   </distributionManagement>
   
@@ -151,6 +151,7 @@
         <configuration>
           <!-- Necessary hack until NPanday 1.5 is formally released -->
           <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+      	  <releaseProfiles>github-site</releaseProfiles>
         </configuration>
       </plugin>
       <plugin>
@@ -222,11 +223,6 @@
         mvn release:prepare -P github-site
         mvn release:perform
       -->
-      <activation>
-        <file>
-          <exists>../release.properties</exists>
-        </file>
-      </activation>
       <build>
         <plugins>
           <plugin>
