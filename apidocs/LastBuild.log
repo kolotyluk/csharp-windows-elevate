@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder" version="2014.2.15.0 Beta" projectFile="D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\elevate.shfbproj" started="4/4/2014 11:42:36 AM">
+<shfbBuild product="Sandcastle Help File Builder" version="2014.2.15.0 Beta" projectFile="D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\elevate.shfbproj" started="4/6/2014 9:55:52 AM">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -22,16 +22,16 @@ Copying XML comments files
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
-    Last step completed in 00:00:00.0310
+    Last step completed in 00:00:00.0350
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0030
+    Last step completed in 00:00:00.0010
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
-Build started 4/4/2014 11:42:37 AM.
+Build started 4/6/2014 9:55:53 AM.
 Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -50,13 +50,13 @@ Done Building Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-w
 
 Build succeeded.
 
-Time Elapsed 00:00:00.49
-    Last step completed in 00:00:00.7620
+Time Elapsed 00:00:00.58
+    Last step completed in 00:00:00.8151
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
-Build started 4/4/2014 11:42:38 AM.
+Build started 4/6/2014 9:55:54 AM.
 Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2014.1.26.0)
@@ -76,12 +76,12 @@ Done Building Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-w
 
 Build succeeded.
 
-Time Elapsed 00:00:00.71
-    Last step completed in 00:00:00.9411
+Time Elapsed 00:00:00.63
+    Last step completed in 00:00:00.8440
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00.0250
+    Last step completed in 00:00:00.0240
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
@@ -90,12 +90,12 @@ No additional content to copy
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00.0010
+    Last step completed in 00:00:00.0000
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
-Build started 4/4/2014 11:42:39 AM.
+Build started 4/6/2014 9:55:55 AM.
 Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2014.1.26.0)
@@ -106,24 +106,24 @@ Done Building Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-w
 
 Build succeeded.
 
-Time Elapsed 00:00:00.14
+Time Elapsed 00:00:00.17
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00.3660
+    Last step completed in 00:00:00.4021
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:00.1160
+    Last step completed in 00:00:00.1360
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\sandcastle.config
-    Last step completed in 00:00:00.0221
+    Last step completed in 00:00:00.0230
 </buildStep>
 <buildStep step="BuildReferenceTopics">
 Building reference help topics...
 [C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe]
-Build started 4/4/2014 11:42:39 AM.
+Build started 4/6/2014 9:55:55 AM.
 Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\BuildReferenceTopics.proj&quot; on node 1 (default targets).
 BuildReferenceTopics:
   BuildAssembler (v2014.1.26.0)
@@ -142,14 +142,14 @@ Done Building Project &quot;D:\Users\Eric\Software\Project\Repositories\csharp-w
 
 Build succeeded.
 
-Time Elapsed 00:00:07.06
-    Last step completed in 00:00:07.2695
+Time Elapsed 00:00:07.56
+    Last step completed in 00:00:07.7835
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
 
 Clearing any prior web output
-    Last step completed in 00:00:00.0040
+    Last step completed in 00:00:00.0020
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -165,7 +165,7 @@ Processed 12 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\WebKI.xml
 Saving website table of contents to D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\WebTOC.xml
-    Last step completed in 00:00:00.3780
+    Last step completed in 00:00:00.4251
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -298,31 +298,31 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\SyncTOC.gif 
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.css -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\TOC.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\TOC.js -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\TOC.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\Web\Web.Config -&gt; D:\Users\Eric\Software\Project\Repositories\csharp-windows-elevate\target\checkout\target\site\apidocs\Working\Output\Website\.\Web.Config
-    Last step completed in 00:00:01.0151
+    Last step completed in 00:00:01.1081
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00.0010
+    Last step completed in 00:00:00.0000
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
-    Last step completed in 00:00:00.1400
+    Last step completed in 00:00:00.1360
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 100 files
 Copied 167 files for the website content
-    Last step completed in 00:00:00.3610
+    Last step completed in 00:00:00.4940
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.0380
+    Last step completed in 00:00:00.0440
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 04/04/2014 11:42 AM.  Total time: 00:00:12.3857
+Build completed successfully at 04/06/2014 09:56 AM.  Total time: 00:00:13.0628
 
 </buildStep>
 </shfbBuild>

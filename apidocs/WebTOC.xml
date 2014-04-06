@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="16410259-0b78-4102-b94c-65dc9de5383f" Title="net.kolotyluk.windows.elevate Namespace" Url="html/bd7717ba-f240-21d1-b24e-d8725308561f.htm">
-    <HelpTOCNode Id="d7100d9f-5fcd-4353-b789-97ade4fe196c" Title="Elevate Class" Url="html/1e164ed3-3fe0-fa32-40f8-3085eb1a3fda.htm">
+  <HelpTOCNode Id="12a51dbe-3be5-4fe3-9d50-4a2c90e8a64b" Title="net.kolotyluk.windows.elevate Namespace" Url="html/bd7717ba-f240-21d1-b24e-d8725308561f.htm">
+    <HelpTOCNode Id="5ab55b55-efc0-420a-820b-85856db33e87" Title="Elevate Class" Url="html/1e164ed3-3fe0-fa32-40f8-3085eb1a3fda.htm">
       <HelpTOCNode Title="Elevate Members" Url="html/7e5fb7c1-185a-e406-4a50-2d452e382b1c.htm" />
       <HelpTOCNode Title="Elevate Constructor " Url="html/44e61355-2e9b-b625-9e76-2495c152cb48.htm" />
-      <HelpTOCNode Id="59aaebcf-b3ba-4347-9e05-58e31430b687" Title="Elevate Methods" Url="html/4f0b3527-c74a-baf7-75a1-17ee1e0199f4.htm">
+      <HelpTOCNode Id="fe21bc80-7176-4c19-b083-e1b383ff46a2" Title="Elevate Methods" Url="html/4f0b3527-c74a-baf7-75a1-17ee1e0199f4.htm">
         <HelpTOCNode Title="Main Method " Url="html/e5db610a-c6ea-5079-7f57-e807273133a6.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="b57d49ac-0739-4e5d-a0a5-7e9ff6c71c69" Title="ElevateTest Class" Url="html/13f08627-8eca-27e8-ac91-9186fe96d86c.htm">
+    <HelpTOCNode Id="55df9ebe-3608-45da-b397-0df4c509b62e" Title="ElevateTest Class" Url="html/13f08627-8eca-27e8-ac91-9186fe96d86c.htm">
       <HelpTOCNode Title="ElevateTest Members" Url="html/2ad924ec-6bbf-f9b7-a75e-9985089cfd4f.htm" />
       <HelpTOCNode Title="ElevateTest Constructor " Url="html/b38529c1-fd89-424e-3245-7ffdb95db6b9.htm" />
-      <HelpTOCNode Id="a6d809d9-305a-442a-aab6-2ec8979d0f23" Title="ElevateTest Methods" Url="html/fa40bfb2-8534-3469-608f-8e10ea1349cb.htm">
+      <HelpTOCNode Id="b4af0a3b-b289-4d4d-b951-5aade268c36c" Title="ElevateTest Methods" Url="html/fa40bfb2-8534-3469-608f-8e10ea1349cb.htm">
         <HelpTOCNode Title="NoArguments Method " Url="html/c4ead0b9-e943-2e47-15b9-da4a10976b61.htm" />
         <HelpTOCNode Title="OneArgumentTCP Method " Url="html/432a81fa-f05e-6a6a-3fb3-8e05b2509538.htm" />
       </HelpTOCNode>
