@@ -79,7 +79,7 @@
     <None Include="Properties\app.manifest" />
     <None Include="src\site\apt\background.apt" />
     <None Include="src\site\apt\background.apt" />
-    <None Include="src\site\apt\usage.apt">
+    <None Include="src\site\apt\usage.apt.vm">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>usage.txt</LastGenOutput>
     </None>

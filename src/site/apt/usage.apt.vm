@@ -32,6 +32,11 @@ Maven
 
   The elevate program can be used from Maven, for example:
 
+~~ Using Resource Filtering to both inject, and escape, some Maven filtering
+~~ of our site documentation.
+~~ http://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html#Filtering
+~~ http://maven.apache.org/plugins/maven-resources-plugin/examples/escape-filtering.html
+
 +--
   <build>
     <plugins>
@@ -42,7 +47,7 @@ Maven
         <executions>
           <execution>
             <id>copy</id>
-            <phase>compile</phase>
+            <phase>generate-test-resources</phase>
             <goals>
               <goal>copy</goal>
             </goals>
@@ -51,10 +56,10 @@ Maven
                 <artifactItem>
                   <groupId>net.kolotyluk.windows</groupId>
                   <artifactId>csharp-windows-elevate</artifactId>
-                  <version>0.0.1</version>
+                  <version>${project.version}</version>
                   <type>exe</type>
                   <overWrite>true</overWrite>
-                  <outputDirectory>${project.build.directory}</outputDirectory>
+                  <outputDirectory>\${project.build.directory}</outputDirectory>
                   <destFileName>elevate.exe</destFileName>
                 </artifactItem>
               </artifactItems>

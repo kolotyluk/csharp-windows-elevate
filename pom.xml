@@ -41,8 +41,12 @@
 	
   <distributionManagement>
 	<site>
-  	  <id>local</id>
-  	  <url>file:///released-site</url>
+	  <!--
+        Fake site used to trick maven-release-plugin into doing site-distribution.
+        Real site-distribution is done via com.github.github site-maven-plugin.
+      -->
+  	  <id>fake</id>
+  	  <!-- <url>file:///released-site</url> -->
   	</site>
   </distributionManagement>
   
@@ -101,6 +105,13 @@
     <sourceDirectory>src/main/csharp</sourceDirectory>
     <testSourceDirectory>src/test/csharp</testSourceDirectory>
 
+  	<resources>
+      <resource>
+        <directory>src/site/apt</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
     <pluginManagement>
       <plugins>
         <plugin>
@@ -134,7 +145,7 @@
             <configuration>
               <target name="sandcastle">
               	<echo message="Copying bin directory..." />
-              	<copy todir="bin">
+              	<copy todir="bin" failonerror="false">
                   <fileset dir="../../bin" />
                </copy>
                 <exec executable="cmd">
@@ -151,6 +162,14 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <escapeString>\</escapeString>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
           <!-- Necessary hack until NPanday 1.5 is formally released -->
@@ -162,13 +181,6 @@
         <groupId>org.apache.npanday.plugins</groupId>
         <artifactId>maven-test-plugin</artifactId>
       	<version>1.5.0-incubating-SNAPSHOT</version>
-<!--
-      	<configuration>
-          <properties>
-            <maven.nunit.usefile>false</maven.nunit.usefile>
-          </properties>
-      	</configuration>
--->
         <extensions>true</extensions>
       </plugin>
       <plugin>
