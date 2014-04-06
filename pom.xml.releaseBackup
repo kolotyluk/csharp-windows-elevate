@@ -14,7 +14,7 @@
 
   <groupId>net.kolotyluk.windows</groupId>
   <artifactId>csharp-windows-elevate</artifactId>
-  <version>0.0.20-SNAPSHOT</version>
+  <version>0.0.19-SNAPSHOT</version>
   <packaging>dotnet-executable</packaging>
 
   <name>elevate.exe</name>
@@ -46,7 +46,7 @@
         Real site-distribution is done via com.github.github site-maven-plugin.
       -->
   	  <id>fake</id>
-  	  <url>file:///fake-site</url>
+  	  <!-- <url>file:///released-site</url> -->
   	</site>
   </distributionManagement>
   
