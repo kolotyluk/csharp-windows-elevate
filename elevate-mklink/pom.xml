@@ -22,7 +22,6 @@
 
   <name>elevate-mklink</name>
   <description>Execute the mklink command with elevated privileges. This form of the elevate command is specialize to only invoke mklink, and no other commands. Consquently, it is safer than using elevate.exe, which can invoke any command or program.</description>
--->
   <url>http://kolotyluk.github.io/csharp-windows-elevate</url>
   
   <inceptionYear>2014</inceptionYear>
