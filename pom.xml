@@ -15,7 +15,7 @@
 
   <groupId>net.kolotyluk.windows</groupId>
   <artifactId>csharp-windows-elevate</artifactId>
-  <version>0.0.21</version>
+  <version>0.0.21-SNAPSHOT</version>
   <packaging>pom</packaging>
 	
   <modules>
