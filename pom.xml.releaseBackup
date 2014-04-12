@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +18,7 @@
 
   <groupId>net.kolotyluk.windows</groupId>
   <artifactId>csharp-windows-elevate</artifactId>
-  <version>0.0.21</version>
+  <version>0.0.21-SNAPSHOT</version>
   <packaging>pom</packaging>
 	
   <modules>
@@ -24,7 +27,12 @@
   </modules>
 
   <name>csharp-windows-elevate</name>
-  <description>A collection of utilities for working around problems with Windows UAC. These utilties let you run commands or programs with Administrator privileges so that UAC prompt is avoided. This can be particularly useful when automating processes such as unit testing, software builds, etc.</description>
+  <description>
+	A collection of utilities for working around problems with Windows UAC.
+	These utilties let you run commands or programs with Administrator privileges
+	so that UAC prompt is avoided. This can be particularly useful when automating
+	processes such as unit testing, software builds, etc.
+  </description>
   <url>http://kolotyluk.github.io/csharp-windows-elevate</url>
   
   <inceptionYear>2014</inceptionYear>
@@ -42,7 +50,7 @@
   	<url>https://github.com/kolotyluk/csharp-windows-elevate</url>
 	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</connection>
 	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
-    <tag>csharp-windows-elevate-0.0.21</tag>
+    <tag>HEAD</tag>
   </scm>
 	  
   <issueManagement>
