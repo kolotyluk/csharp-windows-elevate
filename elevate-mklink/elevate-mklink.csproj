@@ -45,7 +45,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\app.manifest" />
-    <None Include="Properties\Settings.settings" />
     <None Include="src\site\apt\background.apt" />
     <None Include="src\site\apt\usage.apt.vm" />
     <None Include="src\site\fml\faq.fml" />
@@ -82,7 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs" />
     <Compile Include="src\main\csharp\net\kolotyluk\windows\elevate\Elevate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
