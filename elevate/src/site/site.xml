@@ -8,32 +8,22 @@
   <bannerRight>
     <src>http://maven.apache.org/images/maven-small.gif</src>
   </bannerRight>
-
   <body>
     <links>
-      <item name="kolotyluk.net" position="right" href="http://kolotyluk.github.io/" />
-      <item name="GitHub" position="right" href="http://github.com/kolotyluk/csharp-windows-elevate" />
-      <item name="Elevate" position="right" href="index.html" />
+      <item name="elevate-exe" position="right" href="index.html" />
     </links>
-    
-    <breadcrumbs>
-      <item name="Elevate" href="index.html" />
-    </breadcrumbs>
 
-    <menu name="Overview">
+    <menu name="elevate-exe">
       <item name="Introduction" href="index.html"/>
       <item name="Usage" href="usage.html"/>
       <item name="Background" href="background.html"/>
+      <item name="API doc pages" href="apidocs/index.html"/>
       <item name="Download" href="download.html"/>
-      <item name="Wiki" href="https://github.com/kolotyluk/csharp-windows-elevate/wiki"/>
-      <item name="Release Notes" href="release-notes.html" />
       <item name="General Information" href="about.html"/>
-      <item name="Road Map" href="roadmap.html" />
-      <item name="FAQ" href="faq.html"/>
     </menu>
-    
-    <menu ref="modules"/>
+
     <menu ref="reports"/>
 
   </body>
 </project>
+

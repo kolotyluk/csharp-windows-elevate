@@ -11,27 +11,24 @@
   -->
   
   <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
+    <groupId>net.kolotyluk.windows</groupId>
+    <artifactId>csharp-windows-elevate</artifactId>
+    <version>0.0.21-SNAPSHOT</version>
+	<relativePath>..</relativePath>
   </parent>
 
-  <groupId>net.kolotyluk.windows</groupId>
-  <artifactId>csharp-windows-elevate</artifactId>
-  <version>0.0.21-SNAPSHOT</version>
-  <packaging>pom</packaging>
-	
-  <modules>
-    <module>elevate</module>
-    <module>elevate-mklink</module>
-  </modules>
+  <groupId>net.kolotyluk.windows.elevate</groupId>
+  <artifactId>elevate-exe</artifactId>
+  <!-- make sure org.apache.npanday.plugins:maven-compile-plugin has -->
+  <!--    <extensions>true</extensions>                              -->
+  <packaging>dotnet-executable</packaging>
 
-  <name>csharp-windows-elevate</name>
+  <name>elevate-exe</name>
   <description>
-	A collection of utilities for working around problems with Windows UAC.
-	These utilties let you run commands or programs with Administrator privileges
-	so that UAC prompt is avoided. This can be particularly useful when automating
-	processes such as unit testing, software builds, etc.
+	Generic program used to elevate any command or program to run with Administrator privileges.
+	This program is inhernently dangerous in that it simply does anything. You should consider
+	using a more restricted form such as elevate-mklink-exe, which only elevates the mklink
+	command.
   </description>
   <url>http://kolotyluk.github.io/csharp-windows-elevate</url>
   
@@ -52,12 +49,7 @@
 	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-	  
-  <issueManagement>
-    <url>https://github.com/kolotyluk/csharp-windows-elevate/issues</url>
-	<system>GitHub Issues</system>
-  </issueManagement>
-
+	
   <distributionManagement>
 	<site>
 	  <!--
@@ -71,6 +63,11 @@
   	</site>
   </distributionManagement>
   
+  <issueManagement>
+    <url>https://github.com/kolotyluk/csharp-windows-elevate/issues</url>
+	<system>GitHub Issues</system>
+  </issueManagement>
+
   <developers>
     <developer>
       <id>eric</id>
@@ -100,20 +97,26 @@
     <github.global.server>github</github.global.server>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
-	
-  <dependencyManagement>
-  	<dependencies>
-	  <dependency>
-        <groupId>NUnit</groupId>
-        <artifactId>NUnit.Framework</artifactId>
-        <version>2.2.8.0</version>
-	  	<scope>test</scope>
-        <type>dotnet-library</type>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+
+  <dependencies>
+  	<dependency>
+  	  <groupId>net.kolotyluk.windows.elevate</groupId>
+      <artifactId>elevate-common</artifactId>
+      <version>0.0.21-SNAPSHOT</version>
+      <type>dotnet-module</type>
+  	</dependency>
+  	<dependency>
+  	  <groupId>net.kolotyluk.windows.elevate</groupId>
+      <artifactId>elevate-module</artifactId>
+      <version>0.0.21-SNAPSHOT</version>
+      <type>dotnet-module</type>
+  	</dependency>
+  </dependencies>
 
   <build>
+    <sourceDirectory>src/main/csharp</sourceDirectory>
+    <testSourceDirectory>src/test/csharp</testSourceDirectory>
+
   	<resources>
       <resource>
         <directory>src/site/apt</directory>
@@ -123,19 +126,6 @@
 
     <pluginManagement>
       <plugins>
-      	<plugin>
-          <groupId>org.apache.npanday.plugins</groupId>
-          <artifactId>maven-compile-plugin</artifactId>
-          <version>1.5.0-incubating-SNAPSHOT</version>
-          <extensions>true</extensions>
-          <configuration>
-            <frameworkVersion>4.0</frameworkVersion>
-            <main>net.kolotyluk.windows.elevate.Elevate</main>
-            <parameters>
-              <parameter>/win32manifest:Properties\app.manifest</parameter>
-            </parameters>
-      	  </configuration>
-        </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.1</version>
@@ -148,14 +138,6 @@
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
           <version>2.5</version>
-        </plugin>
-      	<plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>2.6</version>
-          <configuration>
-            <escapeString>\</escapeString>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>com.github.github</groupId>
@@ -208,6 +190,12 @@
         </configuration>
       </plugin>
       <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-test-plugin</artifactId>
+      	<version>1.5.0-incubating-SNAPSHOT</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
         <version>1.5</version>
@@ -220,6 +208,52 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-compile-plugin</artifactId>
+        <version>1.5.0-incubating-SNAPSHOT</version>
+        <extensions>true</extensions>
+      	<configuration>
+          <frameworkVersion>4.0</frameworkVersion>
+          <!-- <main>net.kolotyluk.windows.elevate.Elevate</main> -->
+          <parameters>
+            <!-- <parameter>/win32manifest:Properties\app.manifest</parameter>
+          	<parameter>/addmodule:${project.directory}\..\elevate-common\target\elevate-common.netmodule</parameter>
+          	<parameter>/addmodule:${project.directory}\..\elevate-module\target\elevate-module.netmodule</parameter>
+            -->
+          </parameters>
+        </configuration>
+    	<executions>
+          <execution>
+            <phase>none</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-link-plugin</artifactId>
+        <version>1.5.0-incubating-SNAPSHOT</version>
+        <extensions>true</extensions>
+        <configuration>
+          <frameworkVersion>4.0</frameworkVersion>
+          <!-- <main>net.kolotyluk.windows.elevate.Elevate</main> -->
+          <parameters>
+            <parameter>/target:exe</parameter>
+          	<parameter>/out:elevate.exe</parameter>
+          	<parameter>/main:Elevate.Main</parameter>
+          </parameters>
+        </configuration>
+    	<executions>
+          <execution>
+            <phase>compile</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-resgen-plugin</artifactId>
+        <version>1.5.0-incubating-SNAPSHOT</version>
       </plugin>
     </plugins>
   </build>

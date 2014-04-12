@@ -35,3 +35,14 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("0.0.21")]
 [assembly: AssemblyFileVersion("0.0.21")]
 [assembly: AssemblyInformationalVersion("0.0.21-SNAPSHOT")]
+
+namespace net.kolotyluk
+{
+	public class Elevate
+	{
+		public static int Main(string[] commandArguments)
+		{
+			return 0;
+		}
+	}
+}

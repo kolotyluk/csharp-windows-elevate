@@ -1,0 +1,77 @@
+﻿Usage
+
+  elevate <arg>*
+  
+  elevate <port> <arg>*
+
+Examples
+
+  elevate cmd /c mklink /d up ..
+  
+  elevate 12345 cmd /c mklink /d up ..
+
+  These example will create symbolic links in the file system.
+  Because mklink is a privileged command, with security issues,
+  we can use the elevate command to create the symbolic links
+  without first having to start an elevated command window.
+  
+  In a way, elevate is similar to sudo on linux/unix, but is less
+  secure because you are not prompted for a password, and no special
+  record is made of who is invoking elevate.
+  
+Port
+
+  If a decimal port number is specified as the first argument to
+  the program, then it is taken as a port number for a socket, and
+  the program will write the output of the command, and other messages,
+  to the socket. This is useful because when the elevate process starts,
+  stderr, stdout and stdin are not available because it is running under
+  the Admistrator shell.
+
+Maven
+
+  The elevate program can be used from Maven, for example:
+
+~~ Using Resource Filtering to both inject, and escape, some Maven filtering
+~~ of our site documentation.
+~~ http://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html#Filtering
+~~ http://maven.apache.org/plugins/maven-resources-plugin/examples/escape-filtering.html
+
++--
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.8</version>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>generate-test-resources</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>net.kolotyluk.windows.elevate</groupId>
+                  <artifactId>elevate</artifactId>
+                  <version>${project.version}</version>
+                  <type>exe</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>\${project.build.directory}</outputDirectory>
+                  <destFileName>elevate.exe</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
++--
+
+  will download the elevate.exe from Maven Central, and install it in
+  <<<target\elevate.exe>>> of your project. This can be useful when you
+  are running unit tests, for example, your unit test fixtures need to
+  create some symbolic links ahead of time for the tests.

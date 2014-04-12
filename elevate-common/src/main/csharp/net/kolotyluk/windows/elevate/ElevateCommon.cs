@@ -16,12 +16,11 @@
 /*
  * Created by SharpDevelop.
  * User: Eric
- * Date: 2/19/2014
- * Time: 12:57 PM
+ * Date: 4/6/2014
+ * Time: 10:20 AM
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
-
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -32,56 +31,9 @@ using System.Threading;
 namespace net.kolotyluk.windows.elevate
 {
 	/// <summary>
-	///   Run any command or program with elevate priviledges.
-	///   <para>
-	///     <b>Warning:</b> This program in inherently dangerous and a security risk, so don't
-	///     use it without considering the security aspects of what you are doing.
-	///   </para>
+	/// Description of MyClass.
 	/// </summary>
-	/// <remarks>
-	///   Note: for this program to work properly, you need to create the following app.manifest
-	///   and embed it in the elevate.exe file.
-	/// <code>
-	/// &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-	/// &lt;assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
-	///	  &lt;trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
-	///	    &lt;security>
-	///	      &lt;requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-	///	        &lt;!--
-	///	          The presence of the "requestedExecutionLevel" node will disable
-	///	          file and registry virtualization on Vista.
-	///	
-	///	          Use the "level" attribute to specify the User Account Control level:
-	///	            asInvoker            = Never prompt for elevation
-	///	            requireAdministrator = Always prompt for elevation
-	///	            highestAvailable     = Prompt for elevation when started by administrator,
-	///	              but do not prompt for administrator password when started by standard user.
-	///	        -->
-	///        &lt;requestedExecutionLevel level="requireAdministrator"/>
-	///	      &lt;/requestedPrivileges>
-	///	    &lt;/security>
-	///	  &lt;/trustInfo>
-	/// &lt;/assembly>
-	/// </code>
-	/// <para>
-	///   This program is nessecitated by the serious inconvenience that Windows UAC imposes
-	///   on software developers. This is exacerbated but the number of simple utility actions
-	///   developers often need to do that get interrupted by UAC.
-	/// </para>
-	/// <para>
-	///   This program was written in response to trying to write some basic automated unit tests
-	///   for another program. The author needed to create some symbolic links in the file system
-	///   as part of configuring the test fixtures necessary to run the tests. Unfortunately in
-	///   Windows, creating symbolic links is a security risk so this can only be done via an
-	///   environment running as Administrator.
-	/// </para>
-	/// <para>
-	///   This version of the program is too general and powerfull, but it is the first version.
-	///   Better versions of the program would only do specific things, such as "mklink" that only
-	///   creates symbolic links instead of running arbitrary code.
-	/// </para>
-	/// </remarks>
-	public class Elevate
+	public static class ElevateCommon
 	{
 		private const string LogSource = "net.kolotyluk.windows.elevate";
 		private const string LogName = "Application";
@@ -100,7 +52,7 @@ namespace net.kolotyluk.windows.elevate
 		/// elevate, they do so in a separate shell using the Administrator account and environment.
 		/// Consequently, standard I/O such as stdOut and stdErr are not accesible for communication.
 		/// </remarks>
-		public static int Main(string[] commandArguments)
+		public static int Run(string[] commandArguments)
 		{
 			System.Diagnostics.Debug.WriteLine("step 0");
 			

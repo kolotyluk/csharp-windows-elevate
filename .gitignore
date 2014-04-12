@@ -3,12 +3,16 @@
 #################
 
 target
+elevate/target
+elevate-common/target
+elevate-mklink/target
 
 #################
 ## Sandcastle
 #################
 
 Help
+elevate/Help
 
 #################
 ## Ignore Visual Studio temporary files, build results, and

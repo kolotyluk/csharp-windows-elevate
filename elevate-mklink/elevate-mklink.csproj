@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{FD186F0B-FF8E-4E94-B29E-0205B2DB841E}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>elevate_mklink</RootNamespace>
+    <AssemblyName>elevate-mklink</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings" />
+    <None Include="src\site\apt\background.apt" />
+    <None Include="src\site\apt\usage.apt.vm" />
+    <None Include="src\site\fml\faq.fml" />
+    <None Include="src\site\site.xml" />
+    <None Include="src\site\xhtml\release-notes.xhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="src" />
+    <Folder Include="src\main" />
+    <Folder Include="src\main\csharp" />
+    <Folder Include="src\main\csharp\net" />
+    <Folder Include="src\main\csharp\net\kolotyluk" />
+    <Folder Include="src\main\csharp\net\kolotyluk\windows" />
+    <Folder Include="src\main\csharp\net\kolotyluk\windows\elevate" />
+    <Folder Include="src\main\resources" />
+    <Folder Include="src\main\resources\net" />
+    <Folder Include="src\main\resources\net\kolotyluk" />
+    <Folder Include="src\main\resources\net\kolotyluk\windows" />
+    <Folder Include="src\main\resources\net\kolotyluk\windows\elevate" />
+    <Folder Include="src\site" />
+    <Folder Include="src\site\apt" />
+    <Folder Include="src\site\fml" />
+    <Folder Include="src\site\xhtml" />
+    <Folder Include="src\test" />
+    <Folder Include="src\test\csharp" />
+    <Folder Include="src\test\csharp\net" />
+    <Folder Include="src\test\csharp\net\kolotyluk" />
+    <Folder Include="src\test\csharp\net\kolotyluk\windows" />
+    <Folder Include="src\test\csharp\net\kolotyluk\windows\elevate" />
+    <Folder Include="src\test\resources" />
+    <Folder Include="src\test\resources\net" />
+    <Folder Include="src\test\resources\net\kolotyluk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="src\main\csharp\net\kolotyluk\windows\elevate\Elevate.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

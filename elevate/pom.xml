@@ -11,27 +11,24 @@
   -->
   
   <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
+    <groupId>net.kolotyluk.windows</groupId>
+    <artifactId>csharp-windows-elevate</artifactId>
+    <version>0.0.21-SNAPSHOT</version>
+	<relativePath>..</relativePath>
   </parent>
 
-  <groupId>net.kolotyluk.windows</groupId>
-  <artifactId>csharp-windows-elevate</artifactId>
-  <version>0.0.21-SNAPSHOT</version>
-  <packaging>pom</packaging>
-	
-  <modules>
-    <module>elevate</module>
-    <module>elevate-mklink</module>
-  </modules>
+  <groupId>net.kolotyluk.windows.elevate</groupId>
+  <artifactId>elevate</artifactId>
+  <!-- make sure org.apache.npanday.plugins:maven-compile-plugin has -->
+  <!--    <extensions>true</extensions>                              -->
+  <packaging>dotnet-executable</packaging>
 
-  <name>csharp-windows-elevate</name>
+  <name>elevate-exe</name>
   <description>
-	A collection of utilities for working around problems with Windows UAC.
-	These utilties let you run commands or programs with Administrator privileges
-	so that UAC prompt is avoided. This can be particularly useful when automating
-	processes such as unit testing, software builds, etc.
+	Elevate an arbitrary command or program with Administrator Priviledges
+	While this program is usefult it is also powerful and a dangerous
+	security risk. If you need to elevate a command or program, consider
+	using one of the more specialized forms of this program such as elevate-mklink.exe.
   </description>
   <url>http://kolotyluk.github.io/csharp-windows-elevate</url>
   
@@ -52,25 +49,12 @@
 	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-	  
+
   <issueManagement>
     <url>https://github.com/kolotyluk/csharp-windows-elevate/issues</url>
 	<system>GitHub Issues</system>
   </issueManagement>
 
-  <distributionManagement>
-	<site>
-	  <!--
-        Fake site used to trick maven-release-plugin into doing site-distribution.
-        Real site-distribution is done via com.github.github site-maven-plugin.
-        Even if you specify <goals>deploy site-deploy</goals> to the release
-        plugin, it still needs to see <distributionManagement>.
-      -->
-  	  <id>fake</id>
-  	  <url>file:///fake-site</url>
-  	</site>
-  </distributionManagement>
-  
   <developers>
     <developer>
       <id>eric</id>
@@ -100,20 +84,28 @@
     <github.global.server>github</github.global.server>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
-	
-  <dependencyManagement>
-  	<dependencies>
-	  <dependency>
-        <groupId>NUnit</groupId>
-        <artifactId>NUnit.Framework</artifactId>
-        <version>2.2.8.0</version>
-	  	<scope>test</scope>
-        <type>dotnet-library</type>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>NUnit</groupId>
+      <artifactId>NUnit.Framework</artifactId>
+      <version>2.2.8.0</version>
+      <type>dotnet-library</type>
+    </dependency>
+<!--
+    <dependency>
+      <groupId>org.hudsonci.plugins</groupId>
+      <artifactId>nunit</artifactId>
+      <version>0.14-h-1</version>
+    </dependency>
+-->
+  </dependencies>
 
   <build>
+    <sourceDirectory>src/main/csharp</sourceDirectory>
+    <testSourceDirectory>src/test/csharp</testSourceDirectory>
+
   	<resources>
       <resource>
         <directory>src/site/apt</directory>
@@ -123,19 +115,6 @@
 
     <pluginManagement>
       <plugins>
-      	<plugin>
-          <groupId>org.apache.npanday.plugins</groupId>
-          <artifactId>maven-compile-plugin</artifactId>
-          <version>1.5.0-incubating-SNAPSHOT</version>
-          <extensions>true</extensions>
-          <configuration>
-            <frameworkVersion>4.0</frameworkVersion>
-            <main>net.kolotyluk.windows.elevate.Elevate</main>
-            <parameters>
-              <parameter>/win32manifest:Properties\app.manifest</parameter>
-            </parameters>
-      	  </configuration>
-        </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.1</version>
@@ -148,14 +127,6 @@
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
           <version>2.5</version>
-        </plugin>
-      	<plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>2.6</version>
-          <configuration>
-            <escapeString>\</escapeString>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>com.github.github</groupId>
@@ -171,18 +142,59 @@
         <version>1.7</version>
         <executions>
           <execution>
+          	<!--
+              In .Net there is no way to merge .netmodule or .dll files into a single assembly.
+              Concequenly, if we want to create a single assembly with common code, this has to
+              be done at compile time, via source code. To achieve this, we temporarily copy in
+              the common source code to the project, then delete it when we have compiled the
+              final .exe file.
+			-->
+          	<id>copy-common</id>
+            <phase>generate-sources</phase>
+            <configuration>
+              <target name="copy-common">
+              	<echo message="Copying common code" />
+              	<copy tofile="src/main/csharp/net/kolotyluk/windows/elevate/ElevateCommon.cs"
+                      file="../elevate-common/src/main/csharp/net/kolotyluk/windows/elevate/ElevateCommon.cs"
+              	      overwrite="true" />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+          <execution>
+          	<!--
+              Not strickly necessary, but we may as well delete it so that is does not end up
+              under source control.
+            -->
+          	<id>delete-common</id>
+            <phase>compile</phase>
+            <configuration>
+              <target name="delete-common">
+              	<echo message="Deleting common code" />
+              	<delete file="src/main/csharp/net/kolotyluk/windows/elevate/ElevateCommon.cs" />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+
+          <execution>
+          	<id>sandcastle</id>
             <phase>site</phase>
             <configuration>
               <target name="sandcastle">
               	<echo message="Copying bin directory..." />
               	<copy todir="bin" failonerror="false">
                   <fileset dir="../../bin" />
-               </copy>
+                </copy>
                 <exec executable="cmd">
                   <arg value="/c" />
                   <arg value="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
                   <arg value="elevate.shfbproj" />
-              	</exec>
+                </exec>
               </target>
             </configuration>
             <goals>
@@ -207,6 +219,14 @@
       	  <releaseProfiles>github-site</releaseProfiles>
         </configuration>
       </plugin>
+    	<!--
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-test-plugin</artifactId>
+      	<version>1.5.0-incubating-SNAPSHOT</version>
+        <extensions>true</extensions>
+      </plugin>
+-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
@@ -220,6 +240,57 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-compile-plugin</artifactId>
+        <version>1.5.0-incubating-SNAPSHOT</version>
+        <extensions>true</extensions>
+        <configuration>
+          <frameworkVersion>4.0</frameworkVersion>
+          <main>net.kolotyluk.windows.elevate.Elevate</main>
+          <includeSources>
+            <includeSource>Properties\AssemblyInfo.cs</includeSource>
+            <includeSource>src\main\csharp\net\kolotyluk\windows\elevate\Elevate.cs</includeSource>
+          	<includeSource>src\main\csharp\net\kolotyluk\windows\elevate\ElevateCommon.cs</includeSource>
+          </includeSources>
+          <parameters>
+            <parameter>/win32manifest:Properties\app.manifest</parameter>
+          	<!-- <parameter>/addmodule:..\elevate-common\bin\Debug\elevate-common.netmodule</parameter> -->
+        	<!-- <parameter>/LTCG ..\elevate-common\bin\Debug\elevate-common.netmodule</parameter> -->
+          </parameters>
+      	  <executions>
+            <execution>
+           	<phase>compile</phase>
+           </execution>
+          </executions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-link-plugin</artifactId>
+        <version>1.5.0-incubating-SNAPSHOT</version>
+        <extensions>true</extensions>
+        <configuration>
+          <frameworkVersion>4.0</frameworkVersion>
+          <main>net.kolotyluk.windows.elevate.Elevate</main>
+          <parameters>
+            <parameter>/target:exe</parameter>
+          	<parameter>/out:elevate.exe</parameter>
+          	<parameter>/main:Elevate.Main</parameter>
+          </parameters>
+      	  <executions>
+            <execution>
+           	<phase>compile</phase>
+      	  	<goal>link</goal>
+           </execution>
+          </executions>
+        </configuration>
+     </plugin>
+      <plugin>
+        <groupId>org.apache.npanday.plugins</groupId>
+        <artifactId>maven-resgen-plugin</artifactId>
+        <version>1.5.0-incubating-SNAPSHOT</version>
       </plugin>
     </plugins>
   </build>
