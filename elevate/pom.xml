@@ -47,6 +47,19 @@
 	<system>GitHub Issues</system>
   </issueManagement>
 
+  <distributionManagement>
+	<site>
+	  <!--
+        Fake site used to trick maven-release-plugin into doing site-distribution.
+        Real site-distribution is done via com.github.github site-maven-plugin.
+        Even if you specify <goals>deploy site-deploy</goals> to the release
+        plugin, it still needs to see <distributionManagement>.
+      -->
+  	  <id>fake</id>
+  	  <url>file:///fake-site/elevate</url>
+  	</site>
+  </distributionManagement>
+
   <developers>
     <developer>
       <id>eric</id>

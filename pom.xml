@@ -59,7 +59,7 @@
         plugin, it still needs to see <distributionManagement>.
       -->
   	  <id>fake</id>
-  	  <url>file:///fake-site</url>
+  	  <url>file:///fake-site/</url>
   	</site>
   </distributionManagement>
   
