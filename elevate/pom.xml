@@ -36,9 +36,9 @@
   </licenses>
   
   <scm>
-  	<url>https://github.com/kolotyluk/csharp-windows-elevate</url>
-	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</connection>
-	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
+  	<url>https://github.com/kolotyluk/csharp-windows-elevate/elevate</url>
+	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate/elevate.git</connection>
+	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate/elevate.git</developerConnection>
     <tag>csharp-windows-elevate-0.0.21</tag>
   </scm>
 
@@ -246,8 +246,6 @@
           </includeSources>
           <parameters>
             <parameter>/win32manifest:Properties\app.manifest</parameter>
-          	<!-- <parameter>/addmodule:..\elevate-common\bin\Debug\elevate-common.netmodule</parameter> -->
-        	<!-- <parameter>/LTCG ..\elevate-common\bin\Debug\elevate-common.netmodule</parameter> -->
           </parameters>
       	  <executions>
             <execution>
@@ -256,28 +254,7 @@
           </executions>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.npanday.plugins</groupId>
-        <artifactId>maven-link-plugin</artifactId>
-        <version>1.5.0-incubating-SNAPSHOT</version>
-        <extensions>true</extensions>
-        <configuration>
-          <frameworkVersion>4.0</frameworkVersion>
-          <main>net.kolotyluk.windows.elevate.Elevate</main>
-          <parameters>
-            <parameter>/target:exe</parameter>
-          	<parameter>/out:elevate.exe</parameter>
-          	<parameter>/main:Elevate.Main</parameter>
-          </parameters>
-      	  <executions>
-            <execution>
-           	<phase>compile</phase>
-      	  	<goal>link</goal>
-           </execution>
-          </executions>
-        </configuration>
-     </plugin>
-      <plugin>
+     <plugin>
         <groupId>org.apache.npanday.plugins</groupId>
         <artifactId>maven-resgen-plugin</artifactId>
         <version>1.5.0-incubating-SNAPSHOT</version>

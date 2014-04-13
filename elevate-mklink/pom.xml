@@ -20,7 +20,7 @@
   <!--    <extensions>true</extensions>                              -->
   <packaging>dotnet-executable</packaging>
 
-  <name>elevate-mklink</name>
+  <name>elevate-mklink-exe</name>
   <description>Execute the mklink command with elevated privileges. This form of the elevate command is specialize to only invoke mklink, and no other commands. Consquently, it is safer than using elevate.exe, which can invoke any command or program.</description>
   <url>http://kolotyluk.github.io/csharp-windows-elevate</url>
   
@@ -36,9 +36,9 @@
   </licenses>
   
   <scm>
-  	<url>https://github.com/kolotyluk/csharp-windows-elevate</url>
-	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</connection>
-	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
+  	<url>https://github.com/kolotyluk/csharp-windows-elevate/elevate-mklink</url>
+	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate/elevate-mklink.git</connection>
+	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate/elevate-mklink.git</developerConnection>
     <tag>csharp-windows-elevate-0.0.21</tag>
   </scm>
 
@@ -167,27 +167,6 @@
           </execution>
         </executions>
       </plugin>
-     <plugin>
-        <groupId>org.apache.npanday.plugins</groupId>
-        <artifactId>maven-link-plugin</artifactId>
-        <version>1.5.0-incubating-SNAPSHOT</version>
-        <extensions>true</extensions>
-        <configuration>
-          <frameworkVersion>4.0</frameworkVersion>
-          <main>net.kolotyluk.windows.elevate.Elevate</main>
-          <parameters>
-            <parameter>/target:exe</parameter>
-          	<parameter>/out:elevate.exe</parameter>
-          	<parameter>/main:Elevate.Main</parameter>
-          </parameters>
-      	  <executions>
-            <execution>
-           	<phase>compile</phase>
-      	  	<goal>link</goal>
-           </execution>
-          </executions>
-        </configuration>
-     </plugin>
       <plugin>
         <groupId>org.apache.npanday.plugins</groupId>
         <artifactId>maven-resgen-plugin</artifactId>
