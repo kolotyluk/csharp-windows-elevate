@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Elevate - Issue Tracking</title>
+    <title>Elevate - Project Build Plugins</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -36,7 +36,7 @@
         &gt;
                               <a href="./" title="Elevate">Elevate</a>
         &gt;
-    Issue Tracking
+    Project Build Plugins
               </div>
             <div class="xright">                    <a href="../" title="kolotyluk.net">kolotyluk.net</a>
             |
@@ -44,7 +44,7 @@
             |
                         <a href="../index.html" title="Elevate">Elevate</a>
             |
-                        <a href="index.html" title="elevate-exe">elevate-exe</a>
+                        <a href="index.html" title="elevate-mklink-exe">elevate-mklink-exe</a>
               
                     
       </div>
@@ -56,7 +56,7 @@
       <div id="navcolumn">
              
                     
-                                <h5>elevate-exe</h5>
+                                <h5>elevate-mklink.exe</h5>
                   <ul>
                   <li class="none">
                           <a href="index.html" title="Introduction">Introduction</a>
@@ -95,14 +95,14 @@
                           <a href="dependency-management.html" title="Dependency Management">Dependency Management</a>
             </li>
                       <li class="none">
-                          <a href="plugins.html" title="Project Plugins">Project Plugins</a>
-            </li>
+            <strong>Project Plugins</strong>
+          </li>
                       <li class="none">
                           <a href="integration.html" title="Continuous Integration">Continuous Integration</a>
             </li>
                       <li class="none">
-            <strong>Issue Tracking</strong>
-          </li>
+                          <a href="issue-tracking.html" title="Issue Tracking">Issue Tracking</a>
+            </li>
                       <li class="none">
                           <a href="source-repository.html" title="Source Repository">Source Repository</a>
             </li>
@@ -140,13 +140,83 @@
     <div id="bodyColumn">
       <div id="contentBox">
         <div class="section">
-<h2>Overview<a name="Overview"></a></h2><a name="Overview"></a>
-<p>This project uses GitHub Issues to manage its issues.</p></div>
+<h2>Project Build Plugins<a name="Project_Build_Plugins"></a></h2><a name="Project_Build_Plugins"></a>
+<table border="0" class="bodyTable">
+<tr class="a">
+<th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th></tr>
+<tr class="b">
+<td>com.github.github</td>
+<td><a class="externalLink" href="https://github.com/github/maven-plugins">site-maven-plugin</a></td>
+<td>0.9</td></tr>
+<tr class="a">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-antrun-plugin/">maven-antrun-plugin</a></td>
+<td>1.7</td></tr>
+<tr class="b">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-clean-plugin/">maven-clean-plugin</a></td>
+<td>2.5</td></tr>
+<tr class="a">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-deploy-plugin/">maven-deploy-plugin</a></td>
+<td>2.8.1</td></tr>
+<tr class="b">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-enforcer-plugin/">maven-enforcer-plugin</a></td>
+<td>1.0</td></tr>
+<tr class="a">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-gpg-plugin/">maven-gpg-plugin</a></td>
+<td>1.5</td></tr>
+<tr class="b">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-install-plugin/">maven-install-plugin</a></td>
+<td>2.5.1</td></tr>
+<tr class="a">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/maven-release/maven-release-plugin/">maven-release-plugin</a></td>
+<td>2.5</td></tr>
+<tr class="b">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-resources-plugin/">maven-resources-plugin</a></td>
+<td>2.6</td></tr>
+<tr class="a">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-site-plugin/">maven-site-plugin</a></td>
+<td>3.3</td></tr>
+<tr class="b">
+<td>org.apache.npanday.plugins</td>
+<td><a class="externalLink" href="http://incubator.apache.org/npanday/maven-dotnet-plugins/NPanday.Plugin.Settings.JavaBinding/">NPanday.Plugin.Settings.JavaBinding</a></td>
+<td>1.5.0-incubating-SNAPSHOT</td></tr>
+<tr class="a">
+<td>org.apache.npanday.plugins</td>
+<td><a class="externalLink" href="http://incubator.apache.org/npanday/maven-dotnet-plugins/maven-compile-plugin/">maven-compile-plugin</a></td>
+<td>1.5.0-incubating-SNAPSHOT</td></tr>
+<tr class="b">
+<td>org.apache.npanday.plugins</td>
+<td><a class="externalLink" href="http://incubator.apache.org/npanday/maven-dotnet-plugins/maven-install-plugin/">maven-install-plugin</a></td>
+<td>1.5.0-incubating-SNAPSHOT</td></tr>
+<tr class="a">
+<td>org.apache.npanday.plugins</td>
+<td><a class="externalLink" href="http://incubator.apache.org/npanday/maven-dotnet-plugins/maven-resgen-plugin/">maven-resgen-plugin</a></td>
+<td>1.5.0-incubating-SNAPSHOT</td></tr>
+<tr class="b">
+<td>org.apache.npanday.plugins</td>
+<td><a class="externalLink" href="http://incubator.apache.org/npanday/maven-dotnet-plugins/maven-test-plugin/">maven-test-plugin</a></td>
+<td>1.5.0-incubating-SNAPSHOT</td></tr></table></div>
 <div class="section">
-<h2>Issue Tracking<a name="Issue_Tracking"></a></h2><a name="Issue_Tracking"></a>
-<p>Issues, bugs, and feature requests should be submitted to the following issue tracking system for this project.</p>
-<div class="source">
-<pre><a class="externalLink" href="https://github.com/kolotyluk/csharp-windows-elevate/issues">https://github.com/kolotyluk/csharp-windows-elevate/issues</a></pre></div></div>
+<h2>Project Report Plugins<a name="Project_Report_Plugins"></a></h2><a name="Project_Report_Plugins"></a>
+<table border="0" class="bodyTable">
+<tr class="a">
+<th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th></tr>
+<tr class="b">
+<td>org.apache.maven.plugins</td>
+<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-project-info-reports-plugin/">maven-project-info-reports-plugin</a></td>
+<td>2.6</td></tr></table></div>
       </div>
     </div>
     <div class="clear">

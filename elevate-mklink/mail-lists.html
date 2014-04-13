@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Elevate - </title>
+    <title>Elevate - Project Mailing Lists</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -36,7 +36,7 @@
         &gt;
                               <a href="./" title="Elevate">Elevate</a>
         &gt;
-    
+    Project Mailing Lists
               </div>
             <div class="xright">                    <a href="../" title="kolotyluk.net">kolotyluk.net</a>
             |
@@ -44,7 +44,7 @@
             |
                         <a href="../index.html" title="Elevate">Elevate</a>
             |
-                        <a href="index.html" title="elevate-exe">elevate-exe</a>
+                        <a href="index.html" title="elevate-mklink-exe">elevate-mklink-exe</a>
               
                     
       </div>
@@ -56,14 +56,14 @@
       <div id="navcolumn">
              
                     
-                                <h5>elevate-exe</h5>
+                                <h5>elevate-mklink.exe</h5>
                   <ul>
                   <li class="none">
                           <a href="index.html" title="Introduction">Introduction</a>
             </li>
                   <li class="none">
-            <strong>Usage</strong>
-          </li>
+                          <a href="usage.html" title="Usage">Usage</a>
+            </li>
                   <li class="none">
                           <a href="background.html" title="Background">Background</a>
             </li>
@@ -79,9 +79,56 @@
           </ul>
                        <h5>Project Documentation</h5>
                   <ul>
-                                                                                                                                                                                                                                                                                                                                <li class="collapsed">
+                                                                                                                                                                                                                                                                                                                                          <li class="expanded">
                           <a href="project-info.html" title="Project Information">Project Information</a>
-                  </li>
+                    <ul>
+                      <li class="none">
+                          <a href="index.html" title="About">About</a>
+            </li>
+                      <li class="none">
+                          <a href="team-list.html" title="Project Team">Project Team</a>
+            </li>
+                      <li class="none">
+                          <a href="dependency-info.html" title="Dependency Information">Dependency Information</a>
+            </li>
+                      <li class="none">
+                          <a href="dependency-management.html" title="Dependency Management">Dependency Management</a>
+            </li>
+                      <li class="none">
+                          <a href="plugins.html" title="Project Plugins">Project Plugins</a>
+            </li>
+                      <li class="none">
+                          <a href="integration.html" title="Continuous Integration">Continuous Integration</a>
+            </li>
+                      <li class="none">
+                          <a href="issue-tracking.html" title="Issue Tracking">Issue Tracking</a>
+            </li>
+                      <li class="none">
+                          <a href="source-repository.html" title="Source Repository">Source Repository</a>
+            </li>
+                      <li class="none">
+                          <a href="dependency-convergence.html" title="Dependency Convergence">Dependency Convergence</a>
+            </li>
+                      <li class="none">
+                          <a href="license.html" title="Project License">Project License</a>
+            </li>
+                      <li class="none">
+                          <a href="plugin-management.html" title="Plugin Management">Plugin Management</a>
+            </li>
+                      <li class="none">
+                          <a href="distribution-management.html" title="Distribution Management">Distribution Management</a>
+            </li>
+                      <li class="none">
+                          <a href="project-summary.html" title="Project Summary">Project Summary</a>
+            </li>
+                      <li class="none">
+            <strong>Mailing Lists</strong>
+          </li>
+                      <li class="none">
+                          <a href="dependencies.html" title="Dependencies">Dependencies</a>
+            </li>
+              </ul>
+        </li>
           </ul>
                              <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
         <img class="poweredBy" alt="Built by Maven" src="./images/logos/maven-feather.png" />
@@ -93,55 +140,8 @@
     <div id="bodyColumn">
       <div id="contentBox">
         <div class="section">
-<h2>&#xfeff;Usage<a name="aUsage"></a></h2>
-<p>elevate <i>arg</i>*</p>
-<p>elevate <i>port</i> <i>arg</i>*</p></div>
-<div class="section">
-<h2>Examples<a name="Examples"></a></h2>
-<p>elevate cmd /c mklink /d up ..</p>
-<p>elevate 12345 cmd /c mklink /d up ..</p>
-<p>These example will create symbolic links in the file system. Because mklink is a privileged command, with security issues, we can use the elevate command to create the symbolic links without first having to start an elevated command window.</p>
-<p>In a way, elevate is similar to sudo on linux/unix, but is less secure because you are not prompted for a password, and no special record is made of who is invoking elevate.</p></div>
-<div class="section">
-<h2>Port<a name="Port"></a></h2>
-<p>If a decimal port number is specified as the first argument to the program, then it is taken as a port number for a socket, and the program will write the output of the command, and other messages, to the socket. This is useful because when the elevate process starts, stderr, stdout and stdin are not available because it is running under the Admistrator shell.</p></div>
-<div class="section">
-<h2>Maven<a name="Maven"></a></h2>
-<p>The elevate program can be used from Maven, for example:</p><!-- Using Resource Filtering to both inject, and escape, some Maven filtering --><!-- of our site documentation. --><!-- http://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html#Filtering --><!-- http://maven.apache.org/plugins/maven-resources-plugin/examples/escape-filtering.html -->
-<div class="source">
-<pre>  &lt;build&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-        &lt;artifactId&gt;maven-dependency-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.8&lt;/version&gt;
-        &lt;executions&gt;
-          &lt;execution&gt;
-            &lt;id&gt;copy&lt;/id&gt;
-            &lt;phase&gt;generate-test-resources&lt;/phase&gt;
-            &lt;goals&gt;
-              &lt;goal&gt;copy&lt;/goal&gt;
-            &lt;/goals&gt;
-            &lt;configuration&gt;
-              &lt;artifactItems&gt;
-                &lt;artifactItem&gt;
-                  &lt;groupId&gt;net.kolotyluk.windows.elevate&lt;/groupId&gt;
-                  &lt;artifactId&gt;elevate&lt;/artifactId&gt;
-                  &lt;version&gt;0.0.24-SNAPSHOT&lt;/version&gt;
-                  &lt;type&gt;exe&lt;/type&gt;
-                  &lt;overWrite&gt;true&lt;/overWrite&gt;
-                  &lt;outputDirectory&gt;${project.build.directory}&lt;/outputDirectory&gt;
-                  &lt;destFileName&gt;elevate.exe&lt;/destFileName&gt;
-                &lt;/artifactItem&gt;
-              &lt;/artifactItems&gt;
-            &lt;/configuration&gt;
-          &lt;/execution&gt;
-        &lt;/executions&gt;
-      &lt;/plugin&gt;
-    &lt;/plugins&gt;
-  &lt;/build&gt;
-</pre></div>
-<p>will download the elevate.exe from Maven Central, and install it in <tt>target\elevate.exe</tt> of your project. This can be useful when you are running unit tests, for example, your unit test fixtures need to create some symbolic links ahead of time for the tests.</p></div>
+<h2>Project Mailing Lists<a name="Project_Mailing_Lists"></a></h2><a name="Project_Mailing_Lists"></a>
+<p>There are no mailing lists currently associated with this project.</p></div>
       </div>
     </div>
     <div class="clear">
