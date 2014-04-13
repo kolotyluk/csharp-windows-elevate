@@ -31,10 +31,8 @@
                     
                 <div class="xleft">
         <span id="publishDate">Last Published: 2014-04-12</span>
-                  &nbsp;| <span id="projectVersion">Version: 0.0.21</span>
-                          |                           <a href="../index.html" title="Elevate">Elevate</a>
-        &gt;
-                              <a href="./" title="Elevate">Elevate</a>
+                  &nbsp;| <span id="projectVersion">Version: 0.0.22</span>
+                          |                           <a href="index.html" title="Elevate">Elevate</a>
         &gt;
     
               </div>
@@ -42,9 +40,7 @@
             |
                         <a href="http://github.com/kolotyluk/csharp-windows-elevate" class="externalLink" title="GitHub">GitHub</a>
             |
-                        <a href="../index.html" title="Elevate">Elevate</a>
-            |
-                        <a href="index.html" title="elevate-mklink-exe">elevate-mklink-exe</a>
+                        <a href="index.html" title="Elevate">Elevate</a>
               
                     
       </div>
@@ -56,7 +52,7 @@
       <div id="navcolumn">
              
                     
-                                <h5>elevate-mklink.exe</h5>
+                                <h5>Overview</h5>
                   <ul>
                   <li class="none">
                           <a href="index.html" title="Introduction">Introduction</a>
@@ -68,18 +64,36 @@
                           <a href="background.html" title="Background">Background</a>
             </li>
                   <li class="none">
-                          <a href="apidocs/index.html" title="API doc pages">API doc pages</a>
+                          <a href="download.html" title="Download">Download</a>
             </li>
                   <li class="none">
-                          <a href="download.html" title="Download">Download</a>
+                          <a href="https://github.com/kolotyluk/csharp-windows-elevate/wiki" class="externalLink" title="Wiki">Wiki</a>
+            </li>
+                  <li class="none">
+                          <a href="release-notes.html" title="Release Notes">Release Notes</a>
             </li>
                   <li class="none">
                           <a href="about.html" title="General Information">General Information</a>
             </li>
+                  <li class="none">
+                          <a href="roadmap.html" title="Road Map">Road Map</a>
+            </li>
+                  <li class="none">
+                          <a href="faq.html" title="FAQ">FAQ</a>
+            </li>
+          </ul>
+                       <h5>Modules</h5>
+                  <ul>
+                  <li class="none">
+                          <a href="elevate/index.html" title="elevate-exe">elevate-exe</a>
+            </li>
+                  <li class="none">
+                          <a href="elevate-mklink/index.html" title="elevate-mklink-exe">elevate-mklink-exe</a>
+            </li>
           </ul>
                        <h5>Project Documentation</h5>
                   <ul>
-                                                                                                                                                                                                                                                                                                                                <li class="collapsed">
+                                                                                                                                                                                                                                                                                                                                                  <li class="collapsed">
                           <a href="project-info.html" title="Project Information">Project Information</a>
                   </li>
           </ul>
@@ -94,20 +108,20 @@
       <div id="contentBox">
         <div class="section">
 <h2>&#xfeff;Usage<a name="aUsage"></a></h2>
-<p>elevate-mklink <i>arg</i>*</p>
-<p>elevate-mklink <i>port</i> <i>arg</i>*</p></div>
+<p>elevate <i>arg</i>*</p>
+<p>elevate <i>port</i> <i>arg</i>*</p></div>
 <div class="section">
 <h2>Examples<a name="Examples"></a></h2>
-<p>elevate-mklink cmd /d up ..</p>
-<p>elevate-mklink 12345 cmd /d up ..</p>
-<p>These example will create symbolic links in the file system. Because mklink is a privileged command, with security issues, we can use the elevate-mklink command to create the symbolic links without first having to start an elevated command window.</p>
-<p>In a way, elevate-mklink is similar to sudo on linux/unix, but is less secure because you are not prompted for a password, and no special record is made of who is invoking elevate-mklink.</p></div>
+<p>elevate cmd /c mklink /d up ..</p>
+<p>elevate 12345 cmd /c mklink /d up ..</p>
+<p>These example will create symbolic links in the file system. Because mklink is a privileged command, with security issues, we can use the elevate command to create the symbolic links without first having to start an elevated command window.</p>
+<p>In a way, elevate is similar to sudo on linux/unix, but is less secure because you are not prompted for a password, and no special record is made of who is invoking elevate.</p></div>
 <div class="section">
 <h2>Port<a name="Port"></a></h2>
 <p>If a decimal port number is specified as the first argument to the program, then it is taken as a port number for a socket, and the program will write the output of the command, and other messages, to the socket. This is useful because when the elevate process starts, stderr, stdout and stdin are not available because it is running under the Admistrator shell.</p></div>
 <div class="section">
 <h2>Maven<a name="Maven"></a></h2>
-<p>The elevate-mklink program can be used from Maven, for example:</p><!-- Using Resource Filtering to both inject, and escape, some Maven filtering --><!-- of our site documentation. --><!-- http://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html#Filtering --><!-- http://maven.apache.org/plugins/maven-resources-plugin/examples/escape-filtering.html -->
+<p>The elevate program can be used from Maven, for example:</p><!-- Using Resource Filtering to both inject, and escape, some Maven filtering --><!-- of our site documentation. --><!-- http://maven.apache.org/plugins/maven-site-plugin/examples/creating-content.html#Filtering --><!-- http://maven.apache.org/plugins/maven-resources-plugin/examples/escape-filtering.html -->
 <div class="source">
 <pre>  &lt;build&gt;
     &lt;plugins&gt;
@@ -125,9 +139,9 @@
             &lt;configuration&gt;
               &lt;artifactItems&gt;
                 &lt;artifactItem&gt;
-                  &lt;groupId&gt;net.kolotyluk.windows.elevate&lt;/groupId&gt;
-                  &lt;artifactId&gt;elevate-mklink&lt;/artifactId&gt;
-                  &lt;version&gt;0.0.21&lt;/version&gt;
+                  &lt;groupId&gt;net.kolotyluk.windows&lt;/groupId&gt;
+                  &lt;artifactId&gt;csharp-windows-elevate&lt;/artifactId&gt;
+                  &lt;version&gt;0.0.22&lt;/version&gt;
                   &lt;type&gt;exe&lt;/type&gt;
                   &lt;overWrite&gt;true&lt;/overWrite&gt;
                   &lt;outputDirectory&gt;${project.build.directory}&lt;/outputDirectory&gt;
@@ -141,7 +155,7 @@
     &lt;/plugins&gt;
   &lt;/build&gt;
 </pre></div>
-<p>will download the elevate-mklink.exe from Maven Central, and install it in <tt>target\elevate-mklink.exe</tt> of your project. This can be useful when you are running unit tests, for example, your unit test fixtures need to create some symbolic links ahead of time for the tests.</p></div>
+<p>will download the elevate.exe from Maven Central, and install it in <tt>target\elevate.exe</tt> of your project. This can be useful when you are running unit tests, for example, your unit test fixtures need to create some symbolic links ahead of time for the tests.</p></div>
       </div>
     </div>
     <div class="clear">
