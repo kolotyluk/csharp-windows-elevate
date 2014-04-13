@@ -32,7 +32,9 @@
                 <div class="xleft">
         <span id="publishDate">Last Published: 2014-04-12</span>
                   &nbsp;| <span id="projectVersion">Version: 0.0.23</span>
-                          |                           <a href="index.html" title="Elevate">Elevate</a>
+                          |                           <a href="../index.html" title="Elevate">Elevate</a>
+        &gt;
+                              <a href="./" title="Elevate">Elevate</a>
         &gt;
     Dependency Information
               </div>
@@ -40,7 +42,9 @@
             |
                         <a href="http://github.com/kolotyluk/csharp-windows-elevate" class="externalLink" title="GitHub">GitHub</a>
             |
-                        <a href="index.html" title="Elevate">Elevate</a>
+                        <a href="../index.html" title="Elevate">Elevate</a>
+            |
+                        <a href="index.html" title="elevate-exe">elevate-exe</a>
               
                     
       </div>
@@ -52,7 +56,7 @@
       <div id="navcolumn">
              
                     
-                                <h5>Overview</h5>
+                                <h5>elevate-exe</h5>
                   <ul>
                   <li class="none">
                           <a href="index.html" title="Introduction">Introduction</a>
@@ -64,36 +68,18 @@
                           <a href="background.html" title="Background">Background</a>
             </li>
                   <li class="none">
+                          <a href="apidocs/index.html" title="API doc pages">API doc pages</a>
+            </li>
+                  <li class="none">
                           <a href="download.html" title="Download">Download</a>
-            </li>
-                  <li class="none">
-                          <a href="https://github.com/kolotyluk/csharp-windows-elevate/wiki" class="externalLink" title="Wiki">Wiki</a>
-            </li>
-                  <li class="none">
-                          <a href="release-notes.html" title="Release Notes">Release Notes</a>
             </li>
                   <li class="none">
                           <a href="about.html" title="General Information">General Information</a>
             </li>
-                  <li class="none">
-                          <a href="roadmap.html" title="Road Map">Road Map</a>
-            </li>
-                  <li class="none">
-                          <a href="faq.html" title="FAQ">FAQ</a>
-            </li>
-          </ul>
-                       <h5>Modules</h5>
-                  <ul>
-                  <li class="none">
-                          <a href="elevate/index.html" title="elevate-exe">elevate-exe</a>
-            </li>
-                  <li class="none">
-                          <a href="elevate-mklink/index.html" title="elevate-mklink-exe">elevate-mklink-exe</a>
-            </li>
           </ul>
                        <h5>Project Documentation</h5>
                   <ul>
-                                                                                                                                                                                                                                                                                                                                                            <li class="expanded">
+                                                                                                                                                                                                                                                                                                                                          <li class="expanded">
                           <a href="project-info.html" title="Project Information">Project Information</a>
                     <ul>
                       <li class="none">
@@ -101,9 +87,6 @@
             </li>
                       <li class="none">
                           <a href="team-list.html" title="Project Team">Project Team</a>
-            </li>
-                      <li class="none">
-                          <a href="modules.html" title="Project Modules">Project Modules</a>
             </li>
                       <li class="none">
             <strong>Dependency Information</strong>
@@ -162,39 +145,39 @@
 <h3>Apache Maven<a name="Apache_Maven"></a></h3><a name="Apache_Maven"></a>
 <div class="source">
 <pre>&lt;dependency&gt;
-  &lt;groupId&gt;net.kolotyluk.windows&lt;/groupId&gt;
-  &lt;artifactId&gt;csharp-windows-elevate&lt;/artifactId&gt;
+  &lt;groupId&gt;net.kolotyluk.windows.elevate&lt;/groupId&gt;
+  &lt;artifactId&gt;elevate&lt;/artifactId&gt;
   &lt;version&gt;0.0.23&lt;/version&gt;
-  &lt;type&gt;pom&lt;/type&gt;
+  &lt;type&gt;dotnet-executable&lt;/type&gt;
 &lt;/dependency&gt;</pre></div></div>
 <div class="section">
 <h3>Apache Buildr<a name="Apache_Buildr"></a></h3><a name="Apache_Buildr"></a>
 <div class="source">
-<pre>'net.kolotyluk.windows:csharp-windows-elevate:pom:0.0.23'</pre></div></div>
+<pre>'net.kolotyluk.windows.elevate:elevate:dotnet-executable:0.0.23'</pre></div></div>
 <div class="section">
 <h3>Apache Ant<a name="Apache_Ant"></a></h3><a name="Apache_Ant"></a>
 <div class="source">
-<pre>&lt;dependency org=&quot;net.kolotyluk.windows&quot; name=&quot;csharp-windows-elevate&quot; rev=&quot;0.0.23&quot;&gt;
-  &lt;artifact name=&quot;csharp-windows-elevate&quot; type=&quot;pom&quot; /&gt;
+<pre>&lt;dependency org=&quot;net.kolotyluk.windows.elevate&quot; name=&quot;elevate&quot; rev=&quot;0.0.23&quot;&gt;
+  &lt;artifact name=&quot;elevate&quot; type=&quot;dotnet-executable&quot; /&gt;
 &lt;/dependency&gt;</pre></div></div>
 <div class="section">
 <h3>Groovy Grape<a name="Groovy_Grape"></a></h3><a name="Groovy_Grape"></a>
 <div class="source">
 <pre>@Grapes(
-@Grab(group='net.kolotyluk.windows', module='csharp-windows-elevate', version='0.0.23')
+@Grab(group='net.kolotyluk.windows.elevate', module='elevate', version='0.0.23')
 )</pre></div></div>
 <div class="section">
 <h3>Grails<a name="Grails"></a></h3><a name="Grails"></a>
 <div class="source">
-<pre>compile 'net.kolotyluk.windows:csharp-windows-elevate:0.0.23'</pre></div></div>
+<pre>compile 'net.kolotyluk.windows.elevate:elevate:0.0.23'</pre></div></div>
 <div class="section">
 <h3>Leiningen<a name="Leiningen"></a></h3><a name="Leiningen"></a>
 <div class="source">
-<pre>[net.kolotyluk.windows/csharp-windows-elevate &quot;0.0.23&quot;]</pre></div></div>
+<pre>[net.kolotyluk.windows.elevate/elevate &quot;0.0.23&quot;]</pre></div></div>
 <div class="section">
 <h3>SBT<a name="SBT"></a></h3><a name="SBT"></a>
 <div class="source">
-<pre>libraryDependencies += &quot;net.kolotyluk.windows&quot; %% &quot;csharp-windows-elevate&quot; % &quot;0.0.23&quot;</pre></div></div></div>
+<pre>libraryDependencies += &quot;net.kolotyluk.windows.elevate&quot; %% &quot;elevate&quot; % &quot;0.0.23&quot;</pre></div></div></div>
       </div>
     </div>
     <div class="clear">
