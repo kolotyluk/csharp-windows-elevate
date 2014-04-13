@@ -25,7 +25,7 @@
 
   <name>csharp-windows-elevate</name>
   <description>A collection of utilities for working around problems with Windows UAC. These utilties let you run commands or programs with Administrator privileges so that UAC prompt is avoided. This can be particularly useful when automating processes such as unit testing, software builds, etc.</description>
-  <url>http://kolotyluk.github.io/csharp-windows-elevate</url>
+  <url>http://kolotyluk.github.io/${project.artifactId}</url>
   
   <inceptionYear>2014</inceptionYear>
   
@@ -37,32 +37,37 @@
       <comments>A business-friendly OSS license</comments>
     </license>
   </licenses>
-  
+<!--
   <scm>
   	<url>https://github.com/kolotyluk/csharp-windows-elevate</url>
 	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</connection>
 	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
     <tag>csharp-windows-elevate-0.0.21</tag>
   </scm>
+-->
+  <scm>
+  	<url>https://github.com/kolotyluk/csharp-windows-elevate</url>
+    <connection>scm:git:https://github.com/kolotyluk/${project.artifactId}</connection>
+    <developerConnection>scm:git:ssh://git@github.com/kolotyluk/${project.artifactId}.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
 	  
   <issueManagement>
-    <url>https://github.com/kolotyluk/csharp-windows-elevate/issues</url>
+    <url>https://github.com/kolotyluk/${project.artifactId}/issues</url>
 	<system>GitHub Issues</system>
   </issueManagement>
 
   <distributionManagement>
-	<site>
-	  <!--
-        Fake site used to trick maven-release-plugin into doing site-distribution.
-        Real site-distribution is done via com.github.github site-maven-plugin.
-        Even if you specify <goals>deploy site-deploy</goals> to the release
-        plugin, it still needs to see <distributionManagement>.
-      -->
-  	  <id>fake</id>
-  	  <url>file:///fake-site/</url>
-  	</site>
+    <site>
+        <id>gh-pages</id>
+        <name>Kolotyluk GitHub Pages</name>
+        <!-- <url>git:ssh://git@github.com/kolotyluk/csharp-windows-elevate.git?gh-pages#</url> -->
+    	<url>git:ssh://git@github.com/kolotyluk/${project.artifactId}.git?gh-pages#</url>
+    	<!-- <url>https://github.com/kolotyluk/csharp-windows-elevate.git?gh-pages#</url> -->
+    </site>
   </distributionManagement>
-  
+
+
   <developers>
     <developer>
       <id>eric</id>
@@ -91,10 +96,16 @@
     <encoding>UTF-8</encoding>
     <github.global.server>github</github.global.server>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	        <coding-standards.version>1.1.1</coding-standards.version>
   </properties>
 	
   <dependencyManagement>
   	<dependencies>
+      <dependency>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-provider-api</artifactId>
+        <version>2.6</version>
+      </dependency>
 	  <dependency>
         <groupId>NUnit</groupId>
         <artifactId>NUnit.Framework</artifactId>
@@ -213,7 +224,22 @@
           </execution>
         </executions>
       </plugin>
-    </plugins>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.trajano</groupId>
+                            <artifactId>coding-standards</artifactId>
+                            <version>${coding-standards.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>net.trajano.wagon</groupId>
+                            <artifactId>wagon-git</artifactId>
+                            <version>1.0.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+   </plugins>
   </build>
   
   <profiles>
@@ -249,16 +275,29 @@
               <!-- from the scm info, so it is best to define it explicitly   -->
 <!--               <repositoryOwner>kolotyluk</repositoryOwner> -->
 <!--               <repositoryName>java-file-utilities</repositoryName> -->
-              <message>Creating GitHub Pages site for ${project.version}</message>
+<!--              <message>Creating GitHub Pages site for ${project.version}</message> -->
+          	  <message>Creating site for ${project.artifactId}, ${project.version}</message>
+              <!-- this does the trick to place every module in the correct subfolder -->
+              <path>${project.distributionManagement.site.url}</path>
+              <merge>true</merge>
             </configuration>
             <executions>
               <execution>
+              	<id>github-site</id>
               	<phase>site-deploy</phase>
                 <goals>
                   <goal>site</goal> <!-- the site goal uploads to gh_pages -->
                 </goals>
               </execution>
             </executions>
+          </plugin>
+      	  <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+              <skipDeploy>true</skipDeploy>
+            </configuration>
           </plugin>
         </plugins>
       </build>

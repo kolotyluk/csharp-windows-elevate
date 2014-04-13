@@ -36,9 +36,9 @@
   </licenses>
   
   <scm>
-  	<url>https://github.com/kolotyluk/csharp-windows-elevate/elevate-mklink</url>
-	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate/elevate-mklink.git</connection>
-	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate/elevate-mklink.git</developerConnection>
+  	<url>https://github.com/kolotyluk/csharp-windows-elevate/</url>
+	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</connection>
+	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
     <tag>csharp-windows-elevate-0.0.21</tag>
   </scm>
 
@@ -188,55 +188,6 @@
     </plugins>
   </build>
   
-  <profiles>
-    <profile>
-      <id>github-site</id>
-      <!--
-        We do not want to deploy our site to GitHub until we release it,
-        otherwise, snap-shot releases get published. For example:
-          mvn release:clean
-          mvn release:prepare
-          mvn release:perform
-        should just work. Add the following to the maven-release-plugin
-          <plugin>
-            <artifactId>maven-release-plugin</artifactId>
-            <configuration>
-      	      <releaseProfiles>github-site</releaseProfiles>
-          </configuration>
-        </plugin>
-      -->
-      <build>
-        <plugins>
-          <plugin>
-            <!--
-            	deploy the site to github pages
-            	https://github.com/github/maven-plugins
-            -->
-            <groupId>com.github.github</groupId>
-            <artifactId>site-maven-plugin</artifactId>
-            <configuration>
-              <!-- the id of the server with the passwords in settings.xml -->
-              <server>github</server>
-              <!-- sometimes the plugin cannot figure out the owner and name  -->
-              <!-- from the scm info, so it is best to define it explicitly   -->
-<!--               <repositoryOwner>kolotyluk</repositoryOwner> -->
-<!--               <repositoryName>java-file-utilities</repositoryName> -->
-              <message>Creating GitHub Pages site for ${project.version}</message>
-            </configuration>
-            <executions>
-              <execution>
-              	<phase>site-deploy</phase>
-                <goals>
-                  <goal>site</goal> <!-- the site goal uploads to gh_pages -->
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-
   <reporting>
     <plugins>
       <plugin>
