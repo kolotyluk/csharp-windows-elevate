@@ -10,7 +10,7 @@
   <parent>
     <groupId>net.kolotyluk.windows</groupId>
     <artifactId>csharp-windows-elevate</artifactId>
-    <version>0.0.22</version>
+    <version>0.0.23-SNAPSHOT</version>
 	<relativePath>..</relativePath>
   </parent>
 
@@ -39,7 +39,7 @@
   	<url>https://github.com/kolotyluk/csharp-windows-elevate/elevate</url>
 	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate/elevate.git</connection>
 	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate/elevate.git</developerConnection>
-    <tag>csharp-windows-elevate-0.0.22</tag>
+    <tag>csharp-windows-elevate-0.0.21</tag>
   </scm>
 
   <issueManagement>
