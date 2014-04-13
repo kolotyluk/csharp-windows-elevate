@@ -15,7 +15,7 @@
 
   <groupId>net.kolotyluk.windows</groupId>
   <artifactId>csharp-windows-elevate</artifactId>
-  <version>0.0.22-SNAPSHOT</version>
+  <version>0.0.22</version>
   <packaging>pom</packaging>
 	
   <modules>
@@ -42,7 +42,7 @@
   	<url>https://github.com/kolotyluk/csharp-windows-elevate</url>
 	  <connection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</connection>
 	  <developerConnection>scm:git:https://github.com/kolotyluk/csharp-windows-elevate.git</developerConnection>
-    <tag>csharp-windows-elevate-0.0.21</tag>
+    <tag>csharp-windows-elevate-0.0.22</tag>
   </scm>
 	  
   <issueManagement>
